@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>MINI LAND</title>
+    
+    <style>
+        @font-face {
+            font-family: 'OkMallangW';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'NexonMaplestory';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff');
+            font-weight: 300; 
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'NexonMaplestory';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
+            font-weight: 700; 
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'NexonMaplestory', sans-serif;
+            font-weight: 300;
+            background: #ffffff;
+            margin: 0;
+            padding: 40px 20px;
+            text-align: center;
+            min-height: 100vh;
+        }
+        
+        .header-section {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .header-section img {
+            width: 100%;
+            border-radius: 24px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
+            display: block;
+        }
+        
+        h1 {
+            font-family: 'OkMallangW', sans-serif;
+            font-weight: normal;
+            font-size: 80px; 
+            margin-top: 30px; 
+            margin-bottom: 20px;
+            letter-spacing: 2px; 
+            color: #ffffff; 
+            text-shadow: 
+                -4px -4px 0 #5cc98e,  
+                 4px -4px 0 #5cc98e,
+                -4px  4px 0 #5cc98e,
+                 4px  4px 0 #5cc98e,
+                -4px  0   0 #5cc98e,
+                 4px  0   0 #5cc98e,
+                 0   -4px 0 #5cc98e,
+                 0    4px 0 #5cc98e,
+                 0   12px 20px rgba(92, 201, 142, 0.4); 
+        }
+
+        .guide-btn {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 12px 30px;
+            font-family: 'NexonMaplestory', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #5cc98e;
+            background: #ffffff;
+            border: 2px solid #5cc98e;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(92, 201, 142, 0.15);
+        }
+
+        .guide-btn:hover {
+            background: #5cc98e;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 5% auto;
+            padding: 40px;
+            border: 3px solid #5cc98e;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 24px;
+            position: relative;
+            text-align: left;
+            line-height: 1.8;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #5cc98e;
+            cursor: pointer;
+        }
+
+        /* ⭐️ 복사 버튼 스타일 ⭐️ */
+        .copy-btn {
+            float: right;
+            padding: 4px 12px;
+            font-size: 13px;
+            background: #5cc98e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'NexonMaplestory', sans-serif;
+            margin-top: -5px;
+        }
+        .copy-btn:active { transform: scale(0.95); }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(245, 250, 248, 0.8); 
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border: 2px solid #5cc98e; 
+            text-align: left; 
+        }
+
+        .form-title {
+            text-align: center;
+            color: #43b578;
+            font-size: 32px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 700; 
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #5cc98e;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 700; 
+        }
+
+        input[type="text"],
+        input[type="url"] {
+            font-family: 'NexonMaplestory', sans-serif;
+            font-weight: 300; 
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px solid #e5f7f2;
+            background: #ffffff;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: all 0.3s;
+            margin-bottom: 10px; 
+        }
+
+        .submit-btn {
+            font-family: 'NexonMaplestory', sans-serif;
+            font-weight: 700; 
+            width: 100%;
+            font-size: 24px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #87e8b0 0%, #43b578 100%);
+            padding: 18px;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(67, 181, 120, 0.3);
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            letter-spacing: 1px;
+        }
+
+        .guide-content-box {
+            background: #f9fdfb; 
+            padding: 25px; 
+            border-radius: 12px; 
+            border: 1px dashed #5cc98e;
+            font-size: 15px;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-section">
+        <img src="MINI.jpg" alt="MINI LAND 메인 배너">
+        <h1>MINI LAND</h1>
+        <button class="guide-btn" onclick="openModal()">📋 홍보 양식 확인하기</button>
+    </div>
+
+    <!-- 홍보 양식 모달 팝업 -->
+    <div id="guideModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 style="color: #43b578; margin-top: 0; text-align: center;">📢 홍보 양식 안내</h2>
+            
+            <div class="guide-content-box">
+                <p style="margin-top: 0;">
+                    <button class="copy-btn" onclick="copyText('targetTitle')">제목 복사</button>
+                    <strong>[제목]</strong><br>
+                    <span id="targetTitle">⭐미니랜드 5/9일 OPEN 예정 EXP:3 / MESO:3 / DROP:3⭐</span>
+                </p>
+                
+                <hr style="border: 0; border-top: 1px solid #e5f7f2; margin: 15px 0;">
+                
+                <p style="margin-bottom: 0;">
+                    <button class="copy-btn" onclick="copyText('targetContent')">내용 복사</button>
+                    <strong>[홍보내용]</strong><br>
+                    <span id="targetContent">⭐ 미니랜드 커스텀 VER ⭐<br>
+                      <br>
+                    ⭐ EXP 3 / MESO 3 / DROP 3 ⭐<br>
+                    ⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>
+                    ⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>
+                    ⭐ 미니랜드 많관부 ! ⭐<br>
+                    ⭐ 디스코드 : https://discord.gg/RBu9PM2Aun ⭐</span>
+                </p>
+            </div>
+            
+            <p style="font-size: 13px; color: #888; text-align: center; margin-top: 20px;">복사 버튼을 눌러 간편하게 홍보해 보세요!</p>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2 class="form-title">홍보 인증 신청서</h2>
+
+        <div class="input-group">
+            <label>캐릭터 닉네임</label>
+            <input type="text" id="nickname" placeholder="보상을 받을 게임 닉네임을 정확히 입력해주세요!">
+        </div>
+
+        <div class="input-group">
+            <label>홍보 게시글 링크 (1일 최대 10회)</label>
+            <input type="url" class="promo-link" placeholder="1번째 홍보 링크">
+            <input type="url" class="promo-link" placeholder="2번째 홍보 링크">
+            <input type="url" class="promo-link" placeholder="3번째 홍보 링크">
+            <input type="url" class="promo-link" placeholder="4번째 홍보 링크">
+            <input type="url" class="promo-link" placeholder="5번째 홍보 링크">
+            <input type="url" class="promo-link" placeholder="6번째 홍보 링크">
+            <input type="url" class="promo-link" placeholder="7번째 홍보 링크">
+            <input type="url" class="promo-link" placeholder="8번째 홍보 링크">
+            <input type="url" class="promo-link" placeholder="9번째 홍보 링크">
+            <input type="url" class="promo-link" placeholder="10번째 홍보 링크">
+        </div>
+
+        <button class="submit-btn" id="submitBtn">인증 제출하고 보상 받기</button>
+    </div>
+
+    <script>
+        // 모달 제어
+        function openModal() { document.getElementById('guideModal').style.display = "block"; }
+        function closeModal() { document.getElementById('guideModal').style.display = "none"; }
+        window.onclick = function(event) { if (event.target == document.getElementById('guideModal')) closeModal(); }
+
+        // ⭐️ 복사 기능 함수 ⭐️
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('클립보드에 복사되었습니다! ( • ⩊ • )');
+            });
+        }
+
+        // 웹후크 전송 기능
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const webhookUrl = 'https://discordapp.com/api/webhooks/1500394319054377100/S42G6wnihetrIxH4_pDC2p8l7tGz9zCx4Yxcsy8Lo4Qk2pBkFyUKz-8NU6HecLG0QzKE';
+            const nickname = document.getElementById('nickname').value.trim();
+            const linkInputs = document.querySelectorAll('.promo-link');
+            let links = [];
+
+            if (!nickname) { alert('캐릭터 닉네임을 입력해주세요!'); return; }
+
+            linkInputs.forEach((input, index) => {
+                if(input.value.trim() !== '') {
+                    links.push(`**[${index + 1}회차]** ${input.value.trim()}`);
+                }
+            });
+
+            if (links.length === 0) { alert('최소 1개의 홍보 링크를 입력해주세요!'); return; }
+
+            const now = new Date();
+            const todayDate = `${now.getMonth() + 1}월 ${now.getDate()}일`;
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = '전송 중...';
+            btn.disabled = true;
+
+            const payload = {
+                content: "", 
+                embeds: [{
+                    title: `홍보 인증 신청 내역 (${todayDate})`,
+                    color: 6080910, 
+                    fields: [
+                        { name: ":love_letter: 캐릭터 닉네임", value: nickname, inline: false },
+                        { name: `:love_letter: 제출된 홍보 링크 (총 ${links.length}건)`, value: links.join('\n'), inline: false }
+                    ]
+                }]
+            };
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(response => {
+                if(response.ok) {
+                    alert('성공적으로 인증 신청이 완료되었습니다!');
+                    document.getElementById('nickname').value = '';
+                    linkInputs.forEach(input => input.value = '');
+                } else { alert('전송 실패!'); }
+            }).finally(() => {
+                btn.innerText = '인증 제출하고 보상 받기';
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
