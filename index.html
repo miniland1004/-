@@ -12,20 +12,29 @@
         body { font-family: 'NexonMaplestory', sans-serif; font-weight: 300; background: #ffffff; margin: 0; padding: 40px 20px; text-align: center; min-height: 100vh; }
         .header-section { max-width: 800px; margin: 0 auto; position: relative; }
         .header-section img { width: 100%; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); display: block; }
+        
         h1 { font-family: 'OkMallangW', sans-serif; font-weight: normal; font-size: 80px; margin-top: 30px; margin-bottom: 20px; color: #ffffff; text-shadow: -4px -4px 0 #5cc98e, 4px -4px 0 #5cc98e, -4px 4px 0 #5cc98e, 4px 4px 0 #5cc98e, 0 12px 20px rgba(92, 201, 142, 0.4); }
+        
         .guide-btn { display: inline-block; margin-bottom: 30px; padding: 12px 30px; font-weight: 700; font-size: 20px; color: #5cc98e; background: #ffffff; border: 2px solid #5cc98e; border-radius: 50px; cursor: pointer; transition: all 0.3s; }
         .guide-btn:hover { background: #5cc98e; color: #ffffff; transform: scale(1.05); }
+
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
         .modal-content { background-color: #ffffff; margin: 5% auto; padding: 40px; border: 3px solid #5cc98e; width: 90%; max-width: 600px; border-radius: 24px; position: relative; text-align: left; line-height: 1.8; }
         .close-btn { position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; color: #5cc98e; cursor: pointer; }
+        
         .copy-btn { float: right; padding: 4px 12px; font-size: 13px; background: #5cc98e; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: -5px; }
+
         .form-container { max-width: 600px; margin: 0 auto; background: rgba(245, 250, 248, 0.8); backdrop-filter: blur(15px); padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 2px solid #5cc98e; text-align: left; }
         .form-title { text-align: center; color: #43b578; font-size: 32px; margin: 0 0 30px 0; font-weight: 700; }
+        
         .input-group { margin-bottom: 25px; }
         .input-group label { display: block; color: #5cc98e; font-size: 20px; margin-bottom: 10px; font-weight: 700; }
+        
         input[type="text"], input[type="url"] { width: 100%; padding: 15px; border-radius: 12px; border: 2px solid #e5f7f2; background: #ffffff; font-size: 16px; box-sizing: border-box; outline: none; transition: all 0.3s; margin-bottom: 10px; font-family: inherit; }
+        
         .submit-btn { width: 100%; font-size: 24px; color: #ffffff; background: linear-gradient(135deg, #87e8b0 0%, #43b578 100%); padding: 18px; border: none; border-radius: 14px; cursor: pointer; transition: all 0.3s ease; margin-top: 15px; font-weight: 700; }
         .submit-btn:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(67, 181, 120, 0.5); }
+        
         .guide-content-box { background: #f9fdfb; padding: 25px; border-radius: 12px; border: 1px dashed #5cc98e; font-size: 15px; }
     </style>
 </head>
@@ -34,13 +43,13 @@
     <div class="header-section">
         <img src="MINI.jpg" alt="메인 배너">
         <h1>MINI LAND</h1>
-        <button class="guide-btn" onclick="openModal()">📋 홍보 양식 확인하기</button>
+        <button class="guide-btn" onclick="openModal()">홍보 양식 확인하기</button>
     </div>
 
     <div id="guideModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 style="color: #43b578; text-align: center;">📢 홍보 양식 안내</h2>
+            <h2 style="color: #43b578; text-align: center;">홍보 양식 안내</h2>
             <div class="guide-content-box">
                 <p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('targetTitle')">제목 복사</button><br><span id="targetTitle">⭐미니랜드 5/9일 OPEN 예정 EXP:3 / MESO:3 / DROP:3⭐</span></p>
                 <hr style="border: 0; border-top: 1px solid #e5f7f2; margin: 15px 0;">
@@ -51,23 +60,26 @@
 
     <div class="form-container">
         <h2 class="form-title">홍보 인증 신청서</h2>
+        
         <div class="input-group">
             <label>캐릭터 닉네임</label>
-            <input type="text" id="nickname" placeholder="닉네임을 입력해주세요.">
+            <input type="text" id="nickname" placeholder="보상 받을 닉네임을 적어주세요.">
         </div>
+
         <div class="input-group">
             <label>홍보 링크 (10개 필수)</label>
-            <input type="url" class="promo-link" placeholder="1번째 링크" required>
-            <input type="url" class="promo-link" placeholder="2번째 링크" required>
-            <input type="url" class="promo-link" placeholder="3번째 링크" required>
-            <input type="url" class="promo-link" placeholder="4번째 링크" required>
-            <input type="url" class="promo-link" placeholder="5번째 링크" required>
-            <input type="url" class="promo-link" placeholder="6번째 링크" required>
-            <input type="url" class="promo-link" placeholder="7번째 링크" required>
-            <input type="url" class="promo-link" placeholder="8번째 링크" required>
-            <input type="url" class="promo-link" placeholder="9번째 링크" required>
-            <input type="url" class="promo-link" placeholder="10번째 링크" required>
+            <input type="url" class="promo-link" placeholder="1번 링크">
+            <input type="url" class="promo-link" placeholder="2번 링크">
+            <input type="url" class="promo-link" placeholder="3번 링크">
+            <input type="url" class="promo-link" placeholder="4번 링크">
+            <input type="url" class="promo-link" placeholder="5번 링크">
+            <input type="url" class="promo-link" placeholder="6번 링크">
+            <input type="url" class="promo-link" placeholder="7번 링크">
+            <input type="url" class="promo-link" placeholder="8번 링크">
+            <input type="url" class="promo-link" placeholder="9번 링크">
+            <input type="url" class="promo-link" placeholder="10번 링크">
         </div>
+        
         <button class="submit-btn" id="submitBtn">인증 제출하고 보상 받기</button>
     </div>
 
@@ -84,23 +96,19 @@
             let links = [];
             let emptyExists = false;
 
-            // 1. 닉네임 확인
             if(!nickname) { alert('닉네임을 입력하세요!'); return; }
 
-            // 2. 10개 다 채웠는지 확인 (하나라도 비면 컷)
             inputs.forEach(input => {
                 const val = input.value.trim();
                 if(!val) emptyExists = true;
                 links.push(val);
             });
 
-            if(emptyExists) { alert('10개 링크를 모두 빠짐없이 입력해야 합니다! ( • ⩊ • )'); return; }
+            if(emptyExists) { alert('10개 링크를 모두 입력해야 합니다!'); return; }
 
-            // 3. 중복 링크 확인
             const checkSet = new Set(links);
-            if(checkSet.size !== links.length) { alert('똑같은 링크가 섞여 있습니다. 중복 링크를 확인하세요! ( • ⩊ • )'); return; }
+            if(checkSet.size !== links.length) { alert('중복된 링크가 있습니다!'); return; }
 
-            // 전송 시작
             const btn = this;
             btn.innerText = '전송 중...';
             btn.disabled = true;
@@ -117,16 +125,16 @@
                         title: `홍보 인증 신청 내역 (${today})`,
                         color: 6080910,
                         fields: [
-                            { name: "캐릭터 닉네임", value: nickname },
-                            { name: "제출된 링크 (10건)", value: formattedLinks }
+                            { name: ":love_letter: 캐릭터 닉네임", value: nickname },
+                            { name: ":love_letter: 제출된 홍보 링크 (10건)", value: formattedLinks }
                         ]
                     }]
                 })
             }).then(res => {
                 if(res.ok) {
-                    alert('성공적으로 제출되었습니다! 💌');
-                    location.reload(); // 성공 시 새로고침해서 싹 비우기
-                } else { alert('전송 실패! 주소를 확인하세요.'); }
+                    alert('성공적으로 제출되었습니다!');
+                    location.reload(); 
+                } else { alert('전송 실패!'); }
             }).finally(() => {
                 btn.innerText = '인증 제출하고 보상 받기';
                 btn.disabled = false;
