@@ -16,18 +16,11 @@
         h1 { font-family: 'OkMallangW', sans-serif; font-weight: normal; font-size: 80px; margin-top: 30px; margin-bottom: 20px; color: #ffffff; text-shadow: -4px -4px 0 #5cc98e, 4px -4px 0 #5cc98e, -4px 4px 0 #5cc98e, 4px 4px 0 #5cc98e, 0 12px 20px rgba(92, 201, 142, 0.4); }
         
         .btn-group { margin-bottom: 30px; }
-        .guide-btn, .reward-btn { display: inline-block; padding: 12px 30px; font-weight: 700; font-size: 18px; border-radius: 50px; cursor: pointer; transition: all 0.3s; margin: 0 10px; }
-        
-        /* 홍보 양식 버튼 */
-        .guide-btn { color: #5cc98e; background: #ffffff; border: 2px solid #5cc98e; }
-        .guide-btn:hover { background: #5cc98e; color: #ffffff; transform: scale(1.05); }
-        
-        /* 누적 보상 버튼 */
-        .reward-btn { color: #ffffff; background: #5cc98e; border: 2px solid #5cc98e; }
-        .reward-btn:hover { background: #43b578; border-color: #43b578; transform: scale(1.05); }
+        .guide-btn, .reward-btn { display: inline-block; padding: 12px 30px; font-weight: 700; font-size: 18px; border-radius: 50px; cursor: pointer; transition: all 0.3s; margin: 0 10px; color: #5cc98e; background: #ffffff; border: 2px solid #5cc98e; text-decoration: none; }
+        .guide-btn:hover, .reward-btn:hover { background: #5cc98e; color: #ffffff; transform: scale(1.05); }
 
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
-        .modal-content { background-color: #ffffff; margin: 5% auto; padding: 40px; border: 3px solid #5cc98e; width: 90%; max-width: 600px; border-radius: 24px; position: relative; text-align: left; line-height: 1.8; }
+        .modal-content { background-color: #ffffff; margin: 5% auto; padding: 40px; border: 3px solid #5cc98e; width: 90%; max-width: 650px; border-radius: 24px; position: relative; text-align: left; line-height: 1.8; }
         .close-btn { position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; color: #5cc98e; cursor: pointer; }
         
         .copy-btn { float: right; padding: 4px 12px; font-size: 13px; background: #5cc98e; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: -5px; }
@@ -45,10 +38,11 @@
         
         .guide-content-box { background: #f9fdfb; padding: 25px; border-radius: 12px; border: 1px dashed #5cc98e; font-size: 15px; }
 
-        /* 보상 테이블 스타일 */
         .reward-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        .reward-table th, .reward-table td { border-bottom: 1px solid #e5f7f2; padding: 10px; text-align: center; font-size: 14px; }
-        .reward-table th { color: #5cc98e; }
+        .reward-table th, .reward-table td { border-bottom: 1px solid #e5f7f2; padding: 12px 8px; text-align: center; font-size: 14px; }
+        .reward-table th { color: #5cc98e; font-weight: 700; background: #f0faf5; }
+        .reward-table tr:last-child td { border-bottom: none; }
+        .highlight-text { color: #43b578; font-weight: 700; }
     </style>
 </head>
 <body>
@@ -67,7 +61,7 @@
             <span class="close-btn" onclick="closeModal('guideModal')">&times;</span>
             <h2 style="color: #43b578; text-align: center;">홍보 양식 안내</h2>
             <div class="guide-content-box">
-                <p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('targetTitle')">제목 복사</button><br><span id="targetTitle">⭐미니랜드 5/9일 OPEN 예정 EXP:3 / MESO:3 / DROP:3⭐</span></p>
+                <p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('targetTitle')">제목 복사</button><br><span id="targetTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:3⭐</span></p>
                 <hr style="border: 0; border-top: 1px solid #e5f7f2; margin: 15px 0;">
                 <p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('targetContent')">내용 복사</button><br><span id="targetContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 3 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p>
             </div>
@@ -82,35 +76,36 @@
                 <table class="reward-table">
                     <thead>
                         <tr>
-                            <th>누적 횟수</th>
+                            <th style="width: 25%;">누적 횟수</th>
                             <th>지급 보상</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>누적 10회</td><td>홍보 상자 1개 + 1,000 캐시</td></tr>
-                        <tr><td>누적 30회</td><td>홍보 상자 3개 + 5,000 캐시</td></tr>
-                        <tr><td>누적 50회</td><td>[칭호] 미니랜드 홍보대사 + 1만 캐시</td></tr>
-                        <tr><td>누적 100회</td><td>특별 커스텀 아이템 지급</td></tr>
+                        <tr><td>10회</td><td>홍보 상자 1개 + 1,000 캐시</td></tr>
+                        <tr><td>30회</td><td>홍보 상자 3개 + 5,000 캐시</td></tr>
+                        <tr><td>50회</td><td>원하는 캐시 아이템 <span class="highlight-text">올텟+10 / 공+5 / 마+10</span></td></tr>
+                        <tr><td>100회</td><td><span class="highlight-text">♥미니의 단짝♥</span> 칭호 지급</td></tr>
+                        <tr><td>150회</td><td>원하는 캐시 아이템 <span class="highlight-text">올텟+20 / 공+10 / 마+20</span></td></tr>
+                        <tr><td>200회</td><td>원하는 캐시 아이템 <span class="highlight-text">올텟+30 / 공+15 / 마+30</span></td></tr>
+                        <tr><td>250회</td><td>원하는 캐시 아이템 <span class="highlight-text">올텟+40 / 공+20 / 마+40</span></td></tr>
+                        <tr><td>300회</td><td>원하는 캐시 아이템 <span class="highlight-text">올텟+50 / 공+25 / 마+50</span></td></tr>
                     </tbody>
                 </table>
-                <p style="font-size: 12px; color: #888; margin-top: 15px; text-align: center;">* 보상은 운영진 확인 후 순차 지급됩니다.</p>
+                <p style="font-size: 12px; color: #888; margin-top: 15px; text-align: center;">* 모든 보상은 중첩되지 않으며, 달성 시 순차 지급됩니다.</p>
             </div>
         </div>
     </div>
 
     <div class="form-container">
         <h2 class="form-title">홍보 인증 신청서</h2>
-        
         <div class="input-group">
             <label>캐릭터 닉네임</label>
             <input type="text" id="nickname" placeholder="보상 받을 닉네임을 적어주세요.">
         </div>
-
         <div class="input-group">
             <label>홍보 누적 횟수</label>
             <input type="number" id="accumulatedCount" placeholder="현재까지 총 누적된 횟수를 적어주세요.">
         </div>
-
         <div class="input-group">
             <label>홍보 링크 (10개 필수)</label>
             <input type="url" class="promo-link" placeholder="1번 링크">
@@ -124,7 +119,6 @@
             <input type="url" class="promo-link" placeholder="9번 링크">
             <input type="url" class="promo-link" placeholder="10번 링크">
         </div>
-        
         <button class="submit-btn" id="submitBtn">인증 제출하고 보상 받기</button>
     </div>
 
@@ -162,7 +156,7 @@
 
             const now = new Date();
             const today = `${now.getMonth() + 1}월 ${now.getDate()}일`;
-            const formattedLinks = links.map((l, i) => `**[${i+1}회차]** ${l}`).join('\n');
+            const formattedLinks = links.map((l, i) => `**[${i+1}]** ${l}`).join('\n');
 
             fetch(webhookUrl, {
                 method: 'POST',
