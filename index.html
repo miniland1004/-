@@ -15,8 +15,16 @@
         
         h1 { font-family: 'OkMallangW', sans-serif; font-weight: normal; font-size: 80px; margin-top: 30px; margin-bottom: 20px; color: #ffffff; text-shadow: -4px -4px 0 #5cc98e, 4px -4px 0 #5cc98e, -4px 4px 0 #5cc98e, 4px 4px 0 #5cc98e, 0 12px 20px rgba(92, 201, 142, 0.4); }
         
-        .guide-btn { display: inline-block; margin-bottom: 30px; padding: 12px 30px; font-weight: 700; font-size: 20px; color: #5cc98e; background: #ffffff; border: 2px solid #5cc98e; border-radius: 50px; cursor: pointer; transition: all 0.3s; }
+        .btn-group { margin-bottom: 30px; }
+        .guide-btn, .reward-btn { display: inline-block; padding: 12px 30px; font-weight: 700; font-size: 18px; border-radius: 50px; cursor: pointer; transition: all 0.3s; margin: 0 10px; }
+        
+        /* 홍보 양식 버튼 */
+        .guide-btn { color: #5cc98e; background: #ffffff; border: 2px solid #5cc98e; }
         .guide-btn:hover { background: #5cc98e; color: #ffffff; transform: scale(1.05); }
+        
+        /* 누적 보상 버튼 */
+        .reward-btn { color: #ffffff; background: #5cc98e; border: 2px solid #5cc98e; }
+        .reward-btn:hover { background: #43b578; border-color: #43b578; transform: scale(1.05); }
 
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
         .modal-content { background-color: #ffffff; margin: 5% auto; padding: 40px; border: 3px solid #5cc98e; width: 90%; max-width: 600px; border-radius: 24px; position: relative; text-align: left; line-height: 1.8; }
@@ -30,12 +38,17 @@
         .input-group { margin-bottom: 25px; }
         .input-group label { display: block; color: #5cc98e; font-size: 20px; margin-bottom: 10px; font-weight: 700; }
         
-        input[type="text"], input[type="url"] { width: 100%; padding: 15px; border-radius: 12px; border: 2px solid #e5f7f2; background: #ffffff; font-size: 16px; box-sizing: border-box; outline: none; transition: all 0.3s; margin-bottom: 10px; font-family: inherit; }
+        input[type="text"], input[type="url"], input[type="number"] { width: 100%; padding: 15px; border-radius: 12px; border: 2px solid #e5f7f2; background: #ffffff; font-size: 16px; box-sizing: border-box; outline: none; transition: all 0.3s; margin-bottom: 10px; font-family: inherit; }
         
         .submit-btn { width: 100%; font-size: 24px; color: #ffffff; background: linear-gradient(135deg, #87e8b0 0%, #43b578 100%); padding: 18px; border: none; border-radius: 14px; cursor: pointer; transition: all 0.3s ease; margin-top: 15px; font-weight: 700; }
         .submit-btn:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(67, 181, 120, 0.5); }
         
         .guide-content-box { background: #f9fdfb; padding: 25px; border-radius: 12px; border: 1px dashed #5cc98e; font-size: 15px; }
+
+        /* 보상 테이블 스타일 */
+        .reward-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .reward-table th, .reward-table td { border-bottom: 1px solid #e5f7f2; padding: 10px; text-align: center; font-size: 14px; }
+        .reward-table th { color: #5cc98e; }
     </style>
 </head>
 <body>
@@ -43,17 +56,44 @@
     <div class="header-section">
         <img src="MINI.jpg" alt="메인 배너">
         <h1>MINI LAND</h1>
-        <button class="guide-btn" onclick="openModal()">홍보 양식 확인하기</button>
+        <div class="btn-group">
+            <button class="guide-btn" onclick="openModal('guideModal')">홍보 양식 확인하기</button>
+            <button class="reward-btn" onclick="openModal('rewardModal')">홍보 누적 보상 안내</button>
+        </div>
     </div>
 
     <div id="guideModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <span class="close-btn" onclick="closeModal('guideModal')">&times;</span>
             <h2 style="color: #43b578; text-align: center;">홍보 양식 안내</h2>
             <div class="guide-content-box">
                 <p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('targetTitle')">제목 복사</button><br><span id="targetTitle">⭐미니랜드 5/9일 OPEN 예정 EXP:3 / MESO:3 / DROP:3⭐</span></p>
                 <hr style="border: 0; border-top: 1px solid #e5f7f2; margin: 15px 0;">
                 <p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('targetContent')">내용 복사</button><br><span id="targetContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 3 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('rewardModal')">&times;</span>
+            <h2 style="color: #43b578; text-align: center;">홍보 누적 보상 안내</h2>
+            <div class="guide-content-box">
+                <table class="reward-table">
+                    <thead>
+                        <tr>
+                            <th>누적 횟수</th>
+                            <th>지급 보상</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>누적 10회</td><td>홍보 상자 1개 + 1,000 캐시</td></tr>
+                        <tr><td>누적 30회</td><td>홍보 상자 3개 + 5,000 캐시</td></tr>
+                        <tr><td>누적 50회</td><td>[칭호] 미니랜드 홍보대사 + 1만 캐시</td></tr>
+                        <tr><td>누적 100회</td><td>특별 커스텀 아이템 지급</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 12px; color: #888; margin-top: 15px; text-align: center;">* 보상은 운영진 확인 후 순차 지급됩니다.</p>
             </div>
         </div>
     </div>
@@ -64,6 +104,11 @@
         <div class="input-group">
             <label>캐릭터 닉네임</label>
             <input type="text" id="nickname" placeholder="보상 받을 닉네임을 적어주세요.">
+        </div>
+
+        <div class="input-group">
+            <label>홍보 누적 횟수</label>
+            <input type="number" id="accumulatedCount" placeholder="현재까지 총 누적된 횟수를 적어주세요.">
         </div>
 
         <div class="input-group">
@@ -84,12 +129,13 @@
     </div>
 
     <script>
-        function openModal() { document.getElementById('guideModal').style.display = "block"; }
-        function closeModal() { document.getElementById('guideModal').style.display = "none"; }
+        function openModal(id) { document.getElementById(id).style.display = "block"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
         function copyText(id) { navigator.clipboard.writeText(document.getElementById(id).innerText).then(() => alert('복사되었습니다!')); }
 
         document.getElementById('submitBtn').addEventListener('click', function() {
             const nickname = document.getElementById('nickname').value.trim();
+            const accumulatedCount = document.getElementById('accumulatedCount').value.trim();
             const inputs = document.querySelectorAll('.promo-link');
             const webhookUrl = 'https://discordapp.com/api/webhooks/1500394319054377100/S42G6wnihetrIxH4_pDC2p8l7tGz9zCx4Yxcsy8Lo4Qk2pBkFyUKz-8NU6HecLG0QzKE';
             
@@ -97,6 +143,7 @@
             let emptyExists = false;
 
             if(!nickname) { alert('닉네임을 입력하세요!'); return; }
+            if(!accumulatedCount) { alert('홍보 누적 횟수를 입력하세요!'); return; }
 
             inputs.forEach(input => {
                 const val = input.value.trim();
@@ -125,7 +172,8 @@
                         title: `홍보 인증 신청 내역 (${today})`,
                         color: 6080910,
                         fields: [
-                            { name: ":love_letter: 캐릭터 닉네임", value: nickname },
+                            { name: ":love_letter: 캐릭터 닉네임", value: nickname, inline: true },
+                            { name: ":chart_with_upwards_trend: 누적 횟수", value: `${accumulatedCount}회`, inline: true },
                             { name: ":love_letter: 제출된 홍보 링크 (10건)", value: formattedLinks }
                         ]
                     }]
