@@ -5,22 +5,16 @@
     <title>MINI LAND</title>
     
     <style>
-        /* 폰트 파일 주소 뒤에 ?v=1을 붙여서 브라우저가 새 파일로 인식하게 함 */
+        /* [폰트 설정] 옥말랑 폰트 강제 로드 */
         @font-face { 
             font-family: 'OkMallangW'; 
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2?v=1') format('woff2'); 
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2?v=2') format('woff2'); 
             font-weight: normal; 
             font-display: swap; 
         }
-        @font-face { 
-            font-family: 'NexonMaplestory'; 
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff?v=1') format('woff'); 
-            font-weight: 300; 
-            font-display: swap; 
-        }
 
-        /* [핵심] 모든 요소에 폰트를 강제 적용 */
-        * { font-family: 'OkMallangW', 'NexonMaplestory', sans-serif !important; }
+        /* [전체 적용] 모든 글씨를 귀여운 폰트로 강제 고정 */
+        * { font-family: 'OkMallangW', sans-serif !important; }
 
         body { background: #ffffff; margin: 0; padding: 40px 20px; text-align: center; min-height: 100vh; color: #333; }
         .header-section { max-width: 900px; margin: 0 auto 40px; position: relative; }
@@ -28,6 +22,7 @@
         
         h1 { font-size: 80px; margin-top: 30px; margin-bottom: 20px; color: #ffffff; text-shadow: -4px -4px 0 #5cc98e, 4px -4px 0 #5cc98e, -4px 4px 0 #5cc98e, 4px 4px 0 #5cc98e, 0 12px 20px rgba(92, 201, 142, 0.4); }
         
+        /* 버튼 그룹 */
         .btn-group { margin-bottom: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         .nav-btn { display: inline-block; padding: 12px 25px; font-size: 22px; border-radius: 50px; cursor: pointer; transition: all 0.3s; background: #ffffff; text-decoration: none; border: 2px solid; }
         
@@ -48,6 +43,7 @@
         .general-card .section-title { color: #ff6b6b; }
         .special-card .section-title { color: #4dabf7; }
 
+        /* 라벨 색상 설정 */
         .input-group { margin-bottom: 20px; }
         .general-card .input-group label { display: block; font-size: 21px; margin-bottom: 10px; color: #ff6b6b; }
         .special-card .input-group label { display: block; font-size: 21px; margin-bottom: 10px; color: #4dabf7; }
@@ -58,11 +54,13 @@
         .notice-box { background: #f8f9fa; padding: 20px; border-radius: 15px; border-left: 4px solid #4dabf7; margin-top: 20px; }
         .notice-box p { font-size: 15px; color: #555; line-height: 1.8; margin: 0; }
 
+        /* 제출 버튼 */
         .submit-btn { width: 100%; font-size: 28px; color: #ffffff; padding: 18px; border: none; border-radius: 14px; cursor: pointer; transition: 0.3s; margin-top: 20px; }
         .general-card .submit-btn { background: linear-gradient(135deg, #ff9b9b 0%, #ff6b6b 100%); }
         .special-card .submit-btn { background: linear-gradient(135deg, #74c0fc 0%, #4dabf7 100%); }
         .submit-btn:hover { transform: translateY(-3px); opacity: 0.9; }
 
+        /* 모달 스타일 */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
         .modal-content { background-color: #ffffff; margin: 5% auto; padding: 40px; border: 3px solid #5cc98e; width: 90%; max-width: 650px; border-radius: 24px; position: relative; text-align: left; line-height: 1.8; }
         .close-btn { position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; color: #5cc98e; cursor: pointer; }
@@ -85,6 +83,7 @@
     </div>
 
     <div class="content-wrapper">
+        <!-- 일반 홍보 섹션 -->
         <div class="promo-card general-card">
             <div class="section-title">📄 일반 홍보 인증</div>
             <div class="input-group">
@@ -113,6 +112,7 @@
             <button class="submit-btn" onclick="submitGeneral()">일반 인증 제출!</button>
         </div>
 
+        <!-- 특별 홍보 섹션 -->
         <div class="promo-card special-card">
             <div class="section-title">⭐ 특별 홍보 인증</div>
             <div class="input-group">
@@ -131,16 +131,18 @@
             </div>
             <div class="notice-box">
                 <p><strong>📢 특별 홍보 엄중 안내</strong></p>
-                <p>• 지정 플랫폼 및 양식을 반드시 준수하세요.</p>
-                <p>• 운영진 확인 후 지정 조건 충족 시 지급됩니다.</p>
+                <p>• <strong>지정 플랫폼 엄수:</strong> 특별 홍보는 반드시 운영진이 지정한 특정 사이트에서만 유효합니다. 규정된 양식을 벗어난 게시물은 인증 대상에서 제외되니, 사전에 양식을 재확인하시기 바랍니다.</p>
+                <p>• <strong>철저한 검증:</strong> 모든 내역은 운영진의 전수 조사를 거칩니다. 지정 조건 충족 여부를 엄격히 확인한 뒤 지급되오니 성실한 참여를 당부드립니다.</p>
             </div>
             <button class="submit-btn" onclick="submitSpecial()">특별 인증 제출!</button>
         </div>
     </div>
 
-    <!-- 모달 양식들 -->
-    <div id="generalGuideModal" class="modal"><div class="modal-content" style="border-color: #ff6b6b;"><span class="close-btn" style="color: #ff6b6b;" onclick="closeModal('generalGuideModal')">&times;</span><h2 style="color: #ff6b6b; text-align: center;">일반 홍보 양식</h2><div class="guide-box" style="border-color: #ff6b6b;"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('genTitle')">복사</button><br><span id="genTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border-top: 1px solid #ffe3e3;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('genContent')">복사</button><br><span id="genContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
-    <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식</h2><div class="guide-box" style="border-color: #4dabf7;"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">✨ [특별홍보] 미니랜드와 함께해요! ✨</span></p><hr style="border-top: 1px solid #e7f5ff;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">미니랜드만의 특별한 시스템!<br>디스코드: https://discord.gg/YDVcnqE93M</span></p></div></div></div>
+    <!-- 모달 양식 (미니짱님의 원래 멘트로 복구) -->
+    <div id="generalGuideModal" class="modal"><div class="modal-content" style="border-color: #ff6b6b;"><span class="close-btn" style="color: #ff6b6b;" onclick="closeModal('generalGuideModal')">&times;</span><h2 style="color: #ff6b6b; text-align: center;">일반 홍보 양식</h2><div class="guide-box" style="border-color: #ff6b6b;"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('genTitle')">복사</button><br><span id="genTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border-top: 1px solid #ffe3e3;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('genContent')">복사</button><br><span id="genContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
+    
+    <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식</h2><div class="guide-box" style="border-color: #4dabf7;"><p>• 특별 홍보는 사이트 지정 입니다 꼭 양식 확인 해주세요!<br>• 운영진 확인 후 지정 조건 확인후 지급!</p></div></div></div>
+    
     <div id="rewardModal" class="modal"><div class="modal-content" style="border-color: #333;"><span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span><h2 style="color: #333; text-align: center;">홍보 누적 보상</h2><div class="guide-box" style="border-color: #333;"><table class="reward-table"><tbody><tr><td>50회</td><td>올텟+10/공+5/마+10</td></tr><tr><td>100회</td><td>♥미니의 단짝♥ 칭호</td></tr><tr><td>150회</td><td>올텟+20/공+10/마+20</td></tr><tr><td>200회</td><td>홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr><tr><td>250회</td><td>올텟+40/공+20/마+40</td></tr><tr><td>300회</td><td>올텟+50/공+25/마+50</td></tr></tbody></table></div></div></div>
 
     <script>
