@@ -37,7 +37,6 @@
         .header-section { max-width: 900px; margin: 0 auto 40px; position: relative; }
         .header-section img { width: 100%; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); display: block; }
         
-        /* [포인트] 메인 로고 제목만 귀여운 폰트 */
         h1 { 
             font-family: 'OkMallangW', sans-serif !important;
             font-size: 80px; 
@@ -120,7 +119,6 @@
         .special-card .submit-btn { background: linear-gradient(135deg, #74c0fc 0%, #4dabf7 100%); }
         .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
 
-        /* 모달 스타일 */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
         .modal-content { background-color: #ffffff; margin: 2% auto; padding: 35px; border: 2px solid #5cc98e; width: 90%; max-width: 600px; border-radius: 20px; position: relative; text-align: left; line-height: 1.7; }
         .modal-content h2 { font-family: 'OkMallangW', sans-serif !important; font-size: 30px; margin-bottom: 20px; }
@@ -207,6 +205,7 @@
     <div id="rewardModal" class="modal"><div class="modal-content" style="border-color: #333;"><span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span><h2 style="color: #333; text-align: center;">홍보 누적 보상</h2><div class="guide-box"><table style="width: 100%; border-collapse: collapse;"><tbody><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">50회</td><td style="padding: 12px; text-align: center;">올텟+10/공+5/마+10</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">100회</td><td style="padding: 12px; text-align: center;">♥미니의 단짝♥ 칭호</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">150회</td><td style="padding: 12px; text-align: center;">올텟+20/공+10/마+20</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">200회</td><td style="padding: 12px; text-align: center;">홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">250회</td><td style="padding: 12px; text-align: center;">올텟+40/공+20/마+40</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">300회</td><td style="padding: 12px; text-align: center;">올텟+50/공+25/마+50</td></tr></tbody></table></div></div></div>
 
     <script>
+        // 웹후크 설정
         const generalWebhookUrl = 'https://discordapp.com/api/webhooks/1500394319054377100/S42G6wnihetrIxH4_pDC2p8l7tGz9zCx4Yxcsy8Lo4Qk2pBkFyUKz-8NU6HecLG0QzKE';
         const specialWebhookUrl = 'https://discordapp.com/api/webhooks/1504513790442475710/-m1ZNlq3UvYe_CyhKPWrwFo_Q0wbHkVbloUARoP1eSBlPDrSbJUfOKphC_FqWnI0-YPS';
 
@@ -214,6 +213,7 @@
         function closeModal(id) { document.getElementById(id).style.display = "none"; }
         function copyText(id) { navigator.clipboard.writeText(document.getElementById(id).innerText).then(() => alert('복사되었습니다!')); }
 
+        // 일반 홍보 제출 - 제목에서 불필요한 숫자 완전 제거
         function submitGeneral() {
             const nick = document.getElementById('genNickname').value.trim();
             const count = document.getElementById('accumulatedCount').value.trim();
@@ -228,6 +228,7 @@
             if(links.length < 10) return alert('링크 10개를 모두 입력하세요!');
             if(duplicate) return alert('중복된 링크가 있습니다!');
             
+            // "신청" 옆에 숫자가 붙지 않도록 문구 수정
             sendWebhook(generalWebhookUrl, `📄 일반 홍보 신청 - ${nick}`, [
                 { name: "👤 캐릭터 닉네임", value: nick, inline: true },
                 { name: "📈 홍보 누적 횟수", value: `${count}회`, inline: true },
@@ -235,6 +236,7 @@
             ]);
         }
 
+        // 특별 홍보 제출
         function submitSpecial() {
             const nick = document.getElementById('specNickname').value.trim();
             let links = [];
