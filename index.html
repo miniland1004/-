@@ -44,7 +44,7 @@
         .reward-table tr:last-child td { border-bottom: none; }
         .highlight-text { color: #43b578; font-weight: 700; }
         
-        /* 보상 이미지 공통 스타일 */
+        /* 보상 이미지 스타일 */
         .reward-img { vertical-align: middle; height: 32px; margin-right: 5px; }
     </style>
 </head>
@@ -96,7 +96,7 @@
                         <tr>
                             <td>200회</td>
                             <td>
-                                <img src="symbol.png" class="reward-img" alt="심볼">
+                                <img src="symbol.PNG" class="reward-img" alt="심볼">
                                 <span class="highlight-text">홍보왕 심볼</span> 지급 + 올텟+30 / 공+15 / 마+30
                             </td>
                         </tr>
@@ -109,7 +109,6 @@
         </div>
     </div>
 
-    <!-- 이하 인증 폼 및 스크립트는 동일 -->
     <div class="form-container">
         <h2 class="form-title">홍보 인증 신청서</h2>
         <div class="input-group">
@@ -160,6 +159,9 @@
             });
 
             if(emptyExists) { alert('10개 링크를 모두 입력해야 합니다!'); return; }
+
+            const checkSet = new Set(links);
+            if(checkSet.size !== links.length) { alert('중복된 링크가 있습니다!'); return; }
 
             const btn = this;
             btn.innerText = '전송 중...';
