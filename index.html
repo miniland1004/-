@@ -5,40 +5,31 @@
     <title>MINI LAND</title>
     
     <style>
-        /* [폰트 설정] 가장 귀여운 옥말랑 폰트 */
-        @font-face { font-family: 'OkMallangW'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2') format('woff2'); font-weight: normal; font-display: swap; }
-        @font-face { font-family: 'NexonMaplestory'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff'); font-weight: 300; font-display: swap; }
-
-        /* [전체 적용] 모든 글씨를 파란 동그라미의 그 귀여운 폰트로 고정 */
-        * { font-family: 'OkMallangW', sans-serif !important; }
-
-        body { 
-            background: #ffffff; 
-            margin: 0; 
-            padding: 40px 20px; 
-            text-align: center; 
-            min-height: 100vh; 
-            color: #333; 
+        /* 폰트 파일 주소 뒤에 ?v=1을 붙여서 브라우저가 새 파일로 인식하게 함 */
+        @font-face { 
+            font-family: 'OkMallangW'; 
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2?v=1') format('woff2'); 
+            font-weight: normal; 
+            font-display: swap; 
+        }
+        @font-face { 
+            font-family: 'NexonMaplestory'; 
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff?v=1') format('woff'); 
+            font-weight: 300; 
+            font-display: swap; 
         }
 
+        /* [핵심] 모든 요소에 폰트를 강제 적용 */
+        * { font-family: 'OkMallangW', 'NexonMaplestory', sans-serif !important; }
+
+        body { background: #ffffff; margin: 0; padding: 40px 20px; text-align: center; min-height: 100vh; color: #333; }
         .header-section { max-width: 900px; margin: 0 auto 40px; position: relative; }
         .header-section img { width: 100%; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); display: block; }
         
         h1 { font-size: 80px; margin-top: 30px; margin-bottom: 20px; color: #ffffff; text-shadow: -4px -4px 0 #5cc98e, 4px -4px 0 #5cc98e, -4px 4px 0 #5cc98e, 4px 4px 0 #5cc98e, 0 12px 20px rgba(92, 201, 142, 0.4); }
         
-        /* [상단 버튼] 폰트 크기와 색상 맞춤 */
         .btn-group { margin-bottom: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .nav-btn { 
-            display: inline-block; 
-            padding: 12px 25px; 
-            font-size: 22px; 
-            border-radius: 50px; 
-            cursor: pointer; 
-            transition: all 0.3s; 
-            background: #ffffff; 
-            text-decoration: none; 
-            border: 2px solid; 
-        }
+        .nav-btn { display: inline-block; padding: 12px 25px; font-size: 22px; border-radius: 50px; cursor: pointer; transition: all 0.3s; background: #ffffff; text-decoration: none; border: 2px solid; }
         
         .btn-general { color: #ff6b6b; border-color: #ff6b6b; }
         .btn-general:hover { background: #ff6b6b; color: #ffffff; }
@@ -57,47 +48,23 @@
         .general-card .section-title { color: #ff6b6b; }
         .special-card .section-title { color: #4dabf7; }
 
-        /* [라벨 색상] 빨강/파랑으로 통일 */
         .input-group { margin-bottom: 20px; }
         .general-card .input-group label { display: block; font-size: 21px; margin-bottom: 10px; color: #ff6b6b; }
         .special-card .input-group label { display: block; font-size: 21px; margin-bottom: 10px; color: #4dabf7; }
         
-        input { 
-            width: 100%; 
-            padding: 14px; 
-            border-radius: 12px; 
-            border: 2px solid #f0f0f0; 
-            background: #fcfcfc; 
-            font-size: 16px; 
-            box-sizing: border-box; 
-            outline: none; 
-            transition: 0.3s; 
-        }
+        input { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #f0f0f0; background: #fcfcfc; font-size: 16px; box-sizing: border-box; outline: none; transition: 0.3s; }
         input:focus { border-color: #5cc98e; background: #fff; }
         
         .notice-box { background: #f8f9fa; padding: 20px; border-radius: 15px; border-left: 4px solid #4dabf7; margin-top: 20px; }
         .notice-box p { font-size: 15px; color: #555; line-height: 1.8; margin: 0; }
 
-        /* [제출 버튼] */
-        .submit-btn { 
-            width: 100%; 
-            font-size: 28px; 
-            color: #ffffff; 
-            padding: 18px; 
-            border: none; 
-            border-radius: 14px; 
-            cursor: pointer; 
-            transition: 0.3s; 
-            margin-top: 20px; 
-        }
+        .submit-btn { width: 100%; font-size: 28px; color: #ffffff; padding: 18px; border: none; border-radius: 14px; cursor: pointer; transition: 0.3s; margin-top: 20px; }
         .general-card .submit-btn { background: linear-gradient(135deg, #ff9b9b 0%, #ff6b6b 100%); }
         .special-card .submit-btn { background: linear-gradient(135deg, #74c0fc 0%, #4dabf7 100%); }
         .submit-btn:hover { transform: translateY(-3px); opacity: 0.9; }
 
-        /* 모달 디자인 */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
         .modal-content { background-color: #ffffff; margin: 5% auto; padding: 40px; border: 3px solid #5cc98e; width: 90%; max-width: 650px; border-radius: 24px; position: relative; text-align: left; line-height: 1.8; }
-        .modal-content h2 { font-size: 32px; margin-bottom: 20px; }
         .close-btn { position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; color: #5cc98e; cursor: pointer; }
         .guide-box { background:#f9fdfb; padding:20px; border-radius:12px; border:1px dashed #ddd; }
         .reward-table { width: 100%; border-collapse: collapse; }
@@ -194,7 +161,7 @@
             if(!nick) return alert('닉네임을 입력하세요!');
             if(!count) return alert('누적 횟수를 입력하세요!');
             if(links.length < 10) return alert('링크 10개를 모두 입력하세요!');
-            if(duplicate) return alert('중복된 링크가 포함되어 있습니다!');
+            if(duplicate) return alert('중복된 링크가 있습니다!');
             sendWebhook(`📄 일반 홍보 신청 - ${nick}`, [
                 { name: "👤 캐릭터 닉네임", value: nick, inline: true },
                 { name: "📈 홍보 누적 횟수", value: `${count}회`, inline: true },
@@ -212,7 +179,7 @@
             });
             if(!nick) return alert('닉네임을 입력하세요!');
             if(links.length === 0) return alert('특별 홍보 링크를 입력하세요!');
-            if(duplicate) return alert('중복된 링크가 포함되어 있습니다!');
+            if(duplicate) return alert('중복된 링크가 있습니다!');
             sendWebhook(`⭐ 특별 홍보 신청 - ${nick}`, [
                 { name: "👤 캐릭터 닉네임", value: nick, inline: true },
                 { name: "✨ 특별 홍보 링크", value: links.join('\n') }
