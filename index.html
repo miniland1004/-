@@ -43,9 +43,6 @@
         .reward-table th { color: #5cc98e; font-weight: 700; background: #f0faf5; }
         .reward-table tr:last-child td { border-bottom: none; }
         .highlight-text { color: #43b578; font-weight: 700; }
-        
-        /* 보상 이미지 스타일 */
-        .reward-img { vertical-align: middle; height: 32px; margin-right: 5px; }
     </style>
 </head>
 <body>
@@ -85,21 +82,9 @@
                     </thead>
                     <tbody>
                         <tr><td>50회</td><td>원하는 캐시 아이템 <span class="highlight-text">올텟+10 / 공+5 / 마+10</span></td></tr>
-                        <tr>
-                            <td>100회</td>
-                            <td>
-                                <img src="title1.png" class="reward-img" alt="칭호">
-                                <span class="highlight-text">♥미니의 단짝♥</span> 칭호 지급
-                            </td>
-                        </tr>
+                        <tr><td>100회</td><td><span class="highlight-text">♥미니의 단짝♥</span> 칭호 지급</td></tr>
                         <tr><td>150회</td><td>원하는 캐시 아이템 <span class="highlight-text">올텟+20 / 공+10 / 마+20</span></td></tr>
-                        <tr>
-                            <td>200회</td>
-                            <td>
-                                <img src="symbol.PNG" class="reward-img" alt="심볼">
-                                <span class="highlight-text">홍보왕 심볼</span> 지급 + 올텟+30 / 공+15 / 마+30
-                            </td>
-                        </tr>
+                        <tr><td>200회</td><td><span class="highlight-text">홍보왕 심볼</span> 지급 + <span class="highlight-text">올텟+30 / 공+15 / 마+30</span></td></tr>
                         <tr><td>250회</td><td>원하는 캐시 아이템 <span class="highlight-text">올텟+40 / 공+20 / 마+40</span></td></tr>
                         <tr><td>300회</td><td>원하는 캐시 아이템 <span class="highlight-text">올텟+50 / 공+25 / 마+50</span></td></tr>
                     </tbody>
@@ -159,9 +144,6 @@
             });
 
             if(emptyExists) { alert('10개 링크를 모두 입력해야 합니다!'); return; }
-
-            const checkSet = new Set(links);
-            if(checkSet.size !== links.length) { alert('중복된 링크가 있습니다!'); return; }
 
             const btn = this;
             btn.innerText = '전송 중...';
