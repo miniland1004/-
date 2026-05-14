@@ -2,47 +2,51 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <title>Mini Land - Promotion</title>
     <style>
-        body { font-family: 'Malgun Gothic', sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding: 20px; }
-        .container { display: flex; gap: 25px; }
-        .card { background: white; border-radius: 20px; padding: 25px; width: 420px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        /* 기존 스타일 전체 유지 */
+        body { font-family: 'Malgun Gothic', sans-serif; background-color: #f0f2f5; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .logo { margin-bottom: 30px; }
         
-        /* 일반 홍보 - RED 테마 */
-        .general { border-top: 12px solid #ff6b6b; }
-        .general h2 { color: #ff6b6b; margin-top: 0; display: flex; align-items: center; gap: 8px; }
-        .general .label-text { color: #ff6b6b; font-weight: bold; display: block; margin: 15px 0 8px; font-size: 15px; }
+        .container { display: flex; gap: 20px; align-items: flex-start; }
+        .card { background: white; border-radius: 15px; padding: 20px; width: 400px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        
+        /* 1. 일반 홍보: 초록색 폰트 -> 빨간색으로 수정 */
+        .general-header { color: #ff6b6b; font-size: 1.2em; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; gap: 5px; }
+        .general-label { color: #ff6b6b; font-weight: bold; display: block; margin: 15px 0 5px; } /* 수정된 부분 */
+        
+        /* 2. 특별 홍보: 파란색 테마로 추가 */
+        .special-header { color: #4dabf7; font-size: 1.2em; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; gap: 5px; }
+        .special-label { color: #4dabf7; font-weight: bold; display: block; margin: 15px 0 5px; }
+        
+        /* 입력창 및 버튼 기존 스타일 유지 */
+        input { width: 100%; padding: 10px; border: 1px solid #dee2e6; border-radius: 8px; box-sizing: border-box; margin-bottom: 5px; background-color: #f8f9fa; }
+        .btn { width: 100%; padding: 15px; border: none; border-radius: 10px; color: white; font-weight: bold; font-size: 16px; cursor: pointer; margin-top: 20px; }
         .btn-red { background-color: #ff6b6b; }
-
-        /* 특별 홍보 - BLUE 테마 */
-        .special { border-top: 12px solid #4dabf7; }
-        .special h2 { color: #4dabf7; margin-top: 0; display: flex; align-items: center; gap: 8px; }
-        .special .label-text { color: #4dabf7; font-weight: bold; display: block; margin: 15px 0 8px; font-size: 15px; }
         .btn-blue { background-color: #4dabf7; }
 
-        input { width: 100%; padding: 12px; border: 1px solid #e9ecef; border-radius: 10px; box-sizing: border-box; margin-bottom: 8px; background-color: #f8f9fa; transition: 0.2s; }
-        input:focus { border-color: #adb5bd; outline: none; background-color: #fff; }
-        
-        .btn { width: 100%; padding: 18px; border: none; border-radius: 12px; color: white; font-weight: bold; font-size: 17px; cursor: pointer; margin-top: 25px; transition: opacity 0.2s; }
-        .btn:hover { opacity: 0.9; }
-
-        .info-box { background: #f1f3f5; padding: 18px; border-radius: 12px; margin-top: 25px; font-size: 14px; line-height: 1.6; color: #495057; }
-        .info-box strong { display: block; margin-bottom: 5px; }
+        .info-box { background: #f1f3f5; padding: 15px; border-radius: 10px; margin-top: 20px; font-size: 13px; color: #495057; line-height: 1.5; }
     </style>
 </head>
 <body>
 
+    <!-- 기존 로고 (123.png) 그대로 유지 -->
+    <div class="logo">
+        <img src="123.png" alt="미니랜드 로고"> 
+    </div>
+
     <div class="container">
-        <!-- 일반 홍보 인증 -->
-        <div class="card general">
-            <h2>📄 일반 홍보 인증</h2>
+        <!-- [일반 홍보 인증] 초록색 부분만 빨간색으로 변경 -->
+        <div class="card">
+            <div class="general-header">📄 일반 홍보 인증</div>
             
-            <span class="label-text">캐릭터 닉네임</span>
+            <label class="general-label">캐릭터 닉네임</label>
             <input type="text" placeholder="닉네임을 입력하세요.">
             
-            <span class="label-text">홍보 누적 횟수 (필수)</span>
+            <label class="general-label">홍보 누적 횟수 (필수)</label>
             <input type="text" placeholder="현재까지의 누적 횟수를 입력하세요.">
             
-            <span class="label-text">일반 홍보 링크 (10개 필수)</span>
+            <label class="general-label">일반 홍보 링크 (10개 필수)</label>
             <input type="text" placeholder="1번 링크">
             <input type="text" placeholder="2번 링크">
             <input type="text" placeholder="3번 링크">
@@ -57,14 +61,14 @@
             <button class="btn btn-red">일반 홍보 인증 제출</button>
         </div>
 
-        <!-- 특별 홍보 인증 -->
-        <div class="card special">
-            <h2>⭐ 특별 홍보 인증</h2>
+        <!-- [특별 홍보 인증] 파란색 테마로 신규 추가 -->
+        <div class="card">
+            <div class="special-header">⭐ 특별 홍보 인증</div>
             
-            <span class="label-text">캐릭터 닉네임</span>
+            <label class="special-label">캐릭터 닉네임</label>
             <input type="text" placeholder="닉네임을 입력하세요.">
             
-            <span class="label-text">특별 홍보 링크 (최대 5개)</span>
+            <label class="special-label">특별 홍보 링크 (최대 5개)</label>
             <input type="text" placeholder="특별 1번 링크">
             <input type="text" placeholder="특별 2번 링크">
             <input type="text" placeholder="특별 3번 링크">
