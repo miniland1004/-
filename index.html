@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>MINI LAND</title>
-    
     <style>
         @font-face { font-family: 'OkMallangW'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2') format('woff2'); font-weight: normal; font-display: swap; }
         @font-face { font-family: 'NexonMaplestory'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff'); font-weight: 300; font-display: swap; }
         @font-face { font-family: 'NexonMaplestory'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff'); font-weight: 700; font-display: swap; }
 
         body { font-family: 'NexonMaplestory', sans-serif; font-weight: 300; background: #ffffff; margin: 0; padding: 40px 20px; text-align: center; min-height: 100vh; }
-        .header-section { max-width: 800px; margin: 0 auto; position: relative; }
+        .header-section { max-width: 900px; margin: 0 auto; position: relative; }
         .header-section img { width: 100%; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); display: block; }
         
         h1 { font-family: 'OkMallangW', sans-serif; font-weight: normal; font-size: 80px; margin-top: 30px; margin-bottom: 20px; color: #ffffff; text-shadow: -4px -4px 0 #5cc98e, 4px -4px 0 #5cc98e, -4px 4px 0 #5cc98e, 4px 4px 0 #5cc98e, 0 12px 20px rgba(92, 201, 142, 0.4); }
@@ -25,23 +24,27 @@
         
         .copy-btn { float: right; padding: 4px 12px; font-size: 13px; background: #5cc98e; color: white; border: none; border-radius: 6px; cursor: pointer; margin-top: -5px; }
 
-        .form-container { max-width: 600px; margin: 0 auto; background: rgba(245, 250, 248, 0.8); backdrop-filter: blur(15px); padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 2px solid #5cc98e; text-align: left; }
+        .form-container { max-width: 1000px; margin: 0 auto; background: rgba(245, 250, 248, 0.8); backdrop-filter: blur(15px); padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 2px solid #5cc98e; }
         .form-title { text-align: center; color: #43b578; font-size: 32px; margin: 0 0 30px 0; font-weight: 700; }
         
-        .input-group { margin-bottom: 25px; }
-        .input-group label { display: block; color: #5cc98e; font-size: 20px; margin-bottom: 10px; font-weight: 700; }
+        .split-layout { display: flex; gap: 30px; text-align: left; flex-wrap: wrap; }
+        .promo-section { flex: 1; min-width: 300px; background: #ffffff; padding: 25px; border-radius: 15px; border: 1px solid #e5f7f2; }
         
-        input[type="text"], input[type="url"], input[type="number"] { width: 100%; padding: 15px; border-radius: 12px; border: 2px solid #e5f7f2; background: #ffffff; font-size: 16px; box-sizing: border-box; outline: none; transition: all 0.3s; margin-bottom: 10px; font-family: inherit; }
+        .section-title { font-size: 22px; color: #43b578; font-weight: 700; margin-bottom: 20px; border-bottom: 2px solid #5cc98e; padding-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; color: #5cc98e; font-size: 18px; margin-bottom: 8px; font-weight: 700; }
         
-        .submit-btn { width: 100%; font-size: 24px; color: #ffffff; background: linear-gradient(135deg, #87e8b0 0%, #43b578 100%); padding: 18px; border: none; border-radius: 14px; cursor: pointer; transition: all 0.3s ease; margin-top: 15px; font-weight: 700; }
+        input[type="text"], input[type="url"], input[type="number"] { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid #e5f7f2; background: #ffffff; font-size: 15px; box-sizing: border-box; outline: none; transition: all 0.3s; margin-bottom: 8px; font-family: inherit; }
+        input:focus { border-color: #5cc98e; }
+        
+        .submit-btn { width: 100%; font-size: 24px; color: #ffffff; background: linear-gradient(135deg, #87e8b0 0%, #43b578 100%); padding: 18px; border: none; border-radius: 14px; cursor: pointer; transition: all 0.3s ease; margin-top: 20px; font-weight: 700; }
         .submit-btn:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(67, 181, 120, 0.5); }
         
         .guide-content-box { background: #f9fdfb; padding: 25px; border-radius: 12px; border: 1px dashed #5cc98e; font-size: 15px; }
-
         .reward-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         .reward-table th, .reward-table td { border-bottom: 1px solid #e5f7f2; padding: 12px 8px; text-align: center; font-size: 14px; }
         .reward-table th { color: #5cc98e; font-weight: 700; background: #f0faf5; }
-        .reward-table tr:last-child td { border-bottom: none; }
         .highlight-text { color: #43b578; font-weight: 700; }
     </style>
 </head>
@@ -75,10 +78,7 @@
             <div class="guide-content-box">
                 <table class="reward-table">
                     <thead>
-                        <tr>
-                            <th style="width: 25%;">누적 횟수</th>
-                            <th>지급 보상</th>
-                        </tr>
+                        <tr><th style="width: 25%;">누적 횟수</th><th>지급 보상</th></tr>
                     </thead>
                     <tbody>
                         <tr><td>50회</td><td>원하는 캐시 아이템 <span class="highlight-text">올텟+10 / 공+5 / 마+10</span></td></tr>
@@ -89,34 +89,60 @@
                         <tr><td>300회</td><td>원하는 캐시 아이템 <span class="highlight-text">올텟+50 / 공+25 / 마+50</span></td></tr>
                     </tbody>
                 </table>
-                <p style="font-size: 12px; color: #888; margin-top: 15px; text-align: center;">* 모든 보상은 중첩되지 않으며, 달성 시 순차 지급됩니다.</p>
             </div>
         </div>
     </div>
 
     <div class="form-container">
         <h2 class="form-title">홍보 인증 신청서</h2>
-        <div class="input-group">
+        
+        <div class="input-group" style="max-width: 400px; margin: 0 auto 30px;">
             <label>캐릭터 닉네임</label>
             <input type="text" id="nickname" placeholder="보상 받을 닉네임을 적어주세요.">
         </div>
-        <div class="input-group">
-            <label>홍보 누적 횟수</label>
-            <input type="number" id="accumulatedCount" placeholder="현재까지 총 누적된 횟수를 적어주세요.">
+
+        <div class="split-layout">
+            <!-- 일반 홍보 (빨간색 선) -->
+            <div class="promo-section" style="border-top: 5px solid #ff6b6b;">
+                <div class="section-title">📝 일반 홍보 인증</div>
+                <div class="input-group">
+                    <label>홍보 누적 횟수</label>
+                    <input type="number" id="accumulatedCount" placeholder="총 누적 횟수 입력">
+                </div>
+                <div class="input-group">
+                    <label>일반 홍보 링크 (10개 필수)</label>
+                    <div id="generalLinks">
+                        <input type="url" class="promo-link" placeholder="1번 링크">
+                        <input type="url" class="promo-link" placeholder="2번 링크">
+                        <input type="url" class="promo-link" placeholder="3번 링크">
+                        <input type="url" class="promo-link" placeholder="4번 링크">
+                        <input type="url" class="promo-link" placeholder="5번 링크">
+                        <input type="url" class="promo-link" placeholder="6번 링크">
+                        <input type="url" class="promo-link" placeholder="7번 링크">
+                        <input type="url" class="promo-link" placeholder="8번 링크">
+                        <input type="url" class="promo-link" placeholder="9번 링크">
+                        <input type="url" class="promo-link" placeholder="10번 링크">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 특별 홍보 (파란색 선) -->
+            <div class="promo-section" style="border-top: 5px solid #4dabf7;">
+                <div class="section-title">✨ 특별 홍보 인증</div>
+                <div class="input-group">
+                    <label>특별 홍보 링크 (최대 5개)</label>
+                    <div id="specialLinks">
+                        <input type="url" class="special-promo-link" placeholder="특별 1번 링크">
+                        <input type="url" class="special-promo-link" placeholder="특별 2번 링크">
+                        <input type="url" class="special-promo-link" placeholder="특별 3번 링크">
+                        <input type="url" class="special-promo-link" placeholder="특별 4번 링크">
+                        <input type="url" class="special-promo-link" placeholder="특별 5번 링크">
+                    </div>
+                </div>
+                <p style="font-size: 13px; color: #888; line-height: 1.6;">* 유튜브, 블로그 등 특별 홍보 링크를 입력하세요.<br>* 운영진 확인 후 추가 보상이 지급됩니다!</p>
+            </div>
         </div>
-        <div class="input-group">
-            <label>홍보 링크 (10개 필수)</label>
-            <input type="url" class="promo-link" placeholder="1번 링크">
-            <input type="url" class="promo-link" placeholder="2번 링크">
-            <input type="url" class="promo-link" placeholder="3번 링크">
-            <input type="url" class="promo-link" placeholder="4번 링크">
-            <input type="url" class="promo-link" placeholder="5번 링크">
-            <input type="url" class="promo-link" placeholder="6번 링크">
-            <input type="url" class="promo-link" placeholder="7번 링크">
-            <input type="url" class="promo-link" placeholder="8번 링크">
-            <input type="url" class="promo-link" placeholder="9번 링크">
-            <input type="url" class="promo-link" placeholder="10번 링크">
-        </div>
+
         <button class="submit-btn" id="submitBtn">인증 제출하고 보상 받기</button>
     </div>
 
@@ -128,22 +154,22 @@
         document.getElementById('submitBtn').addEventListener('click', function() {
             const nickname = document.getElementById('nickname').value.trim();
             const accumulatedCount = document.getElementById('accumulatedCount').value.trim();
-            const inputs = document.querySelectorAll('.promo-link');
             const webhookUrl = 'https://discordapp.com/api/webhooks/1500394319054377100/S42G6wnihetrIxH4_pDC2p8l7tGz9zCx4Yxcsy8Lo4Qk2pBkFyUKz-8NU6HecLG0QzKE';
             
-            let links = [];
-            let emptyExists = false;
-
-            if(!nickname) { alert('닉네임을 입력하세요!'); return; }
-            if(!accumulatedCount) { alert('홍보 누적 횟수를 입력하세요!'); return; }
-
-            inputs.forEach(input => {
-                const val = input.value.trim();
-                if(!val) emptyExists = true;
-                links.push(val);
+            // 일반 홍보 링크 수집
+            let generalLinks = [];
+            document.querySelectorAll('#generalLinks .promo-link').forEach(input => {
+                if(input.value.trim()) generalLinks.push(input.value.trim());
             });
 
-            if(emptyExists) { alert('10개 링크를 모두 입력해야 합니다!'); return; }
+            // 특별 홍보 링크 수집
+            let specialLinks = [];
+            document.querySelectorAll('#specialLinks .special-promo-link').forEach(input => {
+                if(input.value.trim()) specialLinks.push(input.value.trim());
+            });
+
+            if(!nickname) { alert('닉네임을 입력하세요!'); return; }
+            if(generalLinks.length === 0 && specialLinks.length === 0) { alert('최소 한 가지 인증 정보는 입력해야 합니다!'); return; }
 
             const btn = this;
             btn.innerText = '전송 중...';
@@ -151,27 +177,27 @@
 
             const now = new Date();
             const today = `${now.getMonth() + 1}월 ${now.getDate()}일`;
-            const formattedLinks = links.map((l, i) => `**[${i+1}]** ${l}`).join('\n');
+            const formattedGenLinks = generalLinks.length > 0 ? generalLinks.map((l, i) => `**[일반 ${i+1}]** ${l}`).join('\n') : "일반 홍보 내역 없음";
+            const formattedSpecLinks = specialLinks.length > 0 ? specialLinks.map((l, i) => `**[특별 ${i+1}]** ${l}`).join('\n') : "특별 홍보 내역 없음";
 
             fetch(webhookUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     embeds: [{
-                        title: `홍보 인증 신청 내역 (${today})`,
+                        title: `📢 홍보 인증 신청 내역 (${today})`,
                         color: 6080910,
                         fields: [
-                            { name: ":love_letter: 캐릭터 닉네임", value: nickname, inline: true },
-                            { name: ":chart_with_upwards_trend: 누적 횟수", value: `${accumulatedCount}회`, inline: true },
-                            { name: ":love_letter: 제출된 홍보 링크 (10건)", value: formattedLinks }
+                            { name: "👤 캐릭터 닉네임", value: nickname, inline: true },
+                            { name: "📈 일반 누적 횟수", value: accumulatedCount ? `${accumulatedCount}회` : "미입력", inline: true },
+                            { name: "📝 일반 홍보 링크", value: formattedGenLinks },
+                            { name: "✨ 특별 홍보 링크", value: formattedSpecLinks }
                         ]
                     }]
                 })
             }).then(res => {
-                if(res.ok) {
-                    alert('성공적으로 제출되었습니다!');
-                    location.reload(); 
-                } else { alert('전송 실패!'); }
+                if(res.ok) { alert('성공적으로 제출되었습니다!'); location.reload(); }
+                else { alert('전송 실패!'); }
             }).finally(() => {
                 btn.innerText = '인증 제출하고 보상 받기';
                 btn.disabled = false;
