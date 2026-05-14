@@ -16,7 +16,21 @@
         h1 { font-family: 'OkMallangW', sans-serif; font-weight: normal; font-size: 80px; margin-top: 30px; margin-bottom: 20px; color: #ffffff; text-shadow: -4px -4px 0 #5cc98e, 4px -4px 0 #5cc98e, -4px 4px 0 #5cc98e, 4px 4px 0 #5cc98e, 0 12px 20px rgba(92, 201, 142, 0.4); }
         
         .btn-group { margin-bottom: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .nav-btn { display: inline-block; padding: 12px 25px; font-weight: 700; font-size: 17px; border-radius: 50px; cursor: pointer; transition: all 0.3s; background: #ffffff; text-decoration: none; border: 2px solid; }
+        
+        /* 버튼 폰트를 'OkMallangW'로 변경해서 귀엽게 수정 */
+        .nav-btn { 
+            display: inline-block; 
+            padding: 12px 25px; 
+            font-family: 'OkMallangW', sans-serif; 
+            font-weight: normal; 
+            font-size: 20px; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            background: #ffffff; 
+            text-decoration: none; 
+            border: 2px solid; 
+        }
         
         .btn-general { color: #ff6b6b; border-color: #ff6b6b; }
         .btn-general:hover { background: #ff6b6b; color: #ffffff; }
@@ -25,6 +39,7 @@
         .btn-reward { color: #333333; border-color: #333333; }
         .btn-reward:hover { background: #333333; color: #ffffff; }
 
+        /* 이하 스타일 및 레이아웃 기존 유지 */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
         .modal-content { background-color: #ffffff; margin: 5% auto; padding: 40px; border: 3px solid #5cc98e; width: 90%; max-width: 650px; border-radius: 24px; position: relative; text-align: left; line-height: 1.8; }
         .close-btn { position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; color: #5cc98e; cursor: pointer; }
@@ -35,13 +50,13 @@
         .general-card { border-color: #ff6b6b; }
         .special-card { border-color: #4dabf7; }
 
-        .section-title { font-size: 26px; font-weight: 700; margin-bottom: 25px; }
+        .section-title { font-family: 'OkMallangW', sans-serif; font-size: 30px; font-weight: normal; margin-bottom: 25px; }
         .general-card .section-title { color: #ff6b6b; }
         .special-card .section-title { color: #4dabf7; }
 
         .input-group { margin-bottom: 20px; }
-        .general-card .input-group label { display: block; font-size: 18px; margin-bottom: 10px; font-weight: 700; color: #ff6b6b; }
-        .special-card .input-group label { display: block; font-size: 18px; margin-bottom: 10px; font-weight: 700; color: #4dabf7; }
+        .general-card .input-group label { display: block; font-family: 'OkMallangW', sans-serif; font-size: 20px; margin-bottom: 10px; font-weight: normal; color: #ff6b6b; }
+        .special-card .input-group label { display: block; font-family: 'OkMallangW', sans-serif; font-size: 20px; margin-bottom: 10px; font-weight: normal; color: #4dabf7; }
         
         input { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #f0f0f0; background: #fcfcfc; font-size: 15px; box-sizing: border-box; outline: none; transition: 0.3s; font-family: inherit; }
         input:focus { border-color: #5cc98e; background: #fff; }
@@ -49,7 +64,7 @@
         .notice-box { background: #f8f9fa; padding: 20px; border-radius: 15px; border-left: 4px solid #4dabf7; margin-top: 20px; }
         .notice-box p { font-size: 14px; color: #555; line-height: 1.8; margin: 0; }
 
-        .submit-btn { width: 100%; font-size: 22px; color: #ffffff; padding: 18px; border: none; border-radius: 14px; cursor: pointer; transition: 0.3s; margin-top: 20px; font-weight: 700; }
+        .submit-btn { width: 100%; font-family: 'OkMallangW', sans-serif; font-size: 26px; color: #ffffff; padding: 18px; border: none; border-radius: 14px; cursor: pointer; transition: 0.3s; margin-top: 20px; font-weight: normal; }
         .general-card .submit-btn { background: linear-gradient(135deg, #ff9b9b 0%, #ff6b6b 100%); }
         .special-card .submit-btn { background: linear-gradient(135deg, #74c0fc 0%, #4dabf7 100%); }
         .submit-btn:hover { transform: translateY(-3px); opacity: 0.9; }
@@ -72,6 +87,7 @@
     </div>
 
     <div class="content-wrapper">
+        <!-- 일반 홍보 섹션 -->
         <div class="promo-card general-card">
             <div class="section-title">📄 일반 홍보 인증</div>
             <div class="input-group">
@@ -100,6 +116,7 @@
             <button class="submit-btn" onclick="submitGeneral()">일반 홍보 인증 제출</button>
         </div>
 
+        <!-- 특별 홍보 섹션 -->
         <div class="promo-card special-card">
             <div class="section-title">⭐ 특별 홍보 인증</div>
             <div class="input-group">
@@ -118,17 +135,17 @@
             </div>
             <div class="notice-box">
                 <p><strong>📢 특별 홍보 엄중 안내</strong></p>
-                <p>• <strong>지정 플랫폼 엄수:</strong> 지정 사이트 및 규정 양식을 준수하세요.</p>
-                <p>• <strong>철저한 검증:</strong> 운영진 확인 후 조건 충족 시 지급됩니다.</p>
+                <p>• 지정 플랫폼 엄수: 지정 사이트 및 규정 양식을 반드시 준수하세요.</p>
+                <p>• 철저한 검증: 운영진 확인 후 조건 충족 시 지급됩니다.</p>
             </div>
             <button class="submit-btn" onclick="submitSpecial()">특별 홍보 인증 제출</button>
         </div>
     </div>
 
-    <!-- 모달 생략 (동일) -->
-    <div id="generalGuideModal" class="modal"><div class="modal-content" style="border-color: #ff6b6b;"><span class="close-btn" style="color: #ff6b6b;" onclick="closeModal('generalGuideModal')">&times;</span><h2 style="color: #ff6b6b; text-align: center;">일반 홍보 양식</h2><div class="guide-content-box"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('genTitle')">복사</button><br><span id="genTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border: 0; border-top: 1px solid #ffe3e3; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('genContent')">복사</button><br><span id="genContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
-    <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식</h2><div class="guide-content-box"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">✨ [특별홍보] 미니랜드와 함께해요! ✨</span></p><hr style="border: 0; border-top: 1px solid #e7f5ff; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">미니랜드의 특별한 시스템을 확인하세요!<br>디스코드: https://discord.gg/YDVcnqE93M</span></p></div></div></div>
-    <div id="rewardModal" class="modal"><div class="modal-content" style="border-color: #333;"><span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span><h2 style="color: #333; text-align: center;">홍보 누적 보상 안내</h2><div class="guide-content-box"><table class="reward-table"><tbody><tr><td>50회</td><td>올텟+10/공+5/마+10</td></tr><tr><td>100회</td><td>♥미니의 단짝♥ 칭호</td></tr><tr><td>150회</td><td>올텟+20/공+10/마+20</td></tr><tr><td>200회</td><td>홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr><tr><td>250회</td><td>올텟+40/공+20/마+40</td></tr><tr><td>300회</td><td>올텟+50/공+25/마+50</td></tr></tbody></table></div></div></div>
+    <!-- 모달 등 나머지 코드는 이전과 동일 -->
+    <div id="generalGuideModal" class="modal"><div class="modal-content" style="border-color: #ff6b6b;"><span class="close-btn" style="color: #ff6b6b;" onclick="closeModal('generalGuideModal')">&times;</span><h2 style="color: #ff6b6b; text-align: center; font-family: 'OkMallangW';">일반 홍보 양식</h2><div class="guide-content-box"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('genTitle')">복사</button><br><span id="genTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border: 0; border-top: 1px solid #ffe3e3; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('genContent')">복사</button><br><span id="genContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
+    <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center; font-family: 'OkMallangW';">특별 홍보 양식</h2><div class="guide-content-box"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">✨ [특별홍보] 미니랜드와 함께해요! ✨</span></p><hr style="border: 0; border-top: 1px solid #e7f5ff; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">미니랜드의 특별한 시스템을 확인하세요!<br>디스코드: https://discord.gg/YDVcnqE93M</span></p></div></div></div>
+    <div id="rewardModal" class="modal"><div class="modal-content" style="border-color: #333;"><span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span><h2 style="color: #333; text-align: center; font-family: 'OkMallangW';">홍보 누적 보상 안내</h2><div class="guide-content-box"><table class="reward-table"><tbody><tr><td>50회</td><td>올텟+10/공+5/마+10</td></tr><tr><td>100회</td><td>♥미니의 단짝♥ 칭호</td></tr><tr><td>150회</td><td>올텟+20/공+10/마+20</td></tr><tr><td>200회</td><td>홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr><tr><td>250회</td><td>올텟+40/공+20/마+40</td></tr><tr><td>300회</td><td>올텟+50/공+25/마+50</td></tr></tbody></table></div></div></div>
 
     <script>
         const webhookUrl = 'https://discordapp.com/api/webhooks/1500394319054377100/S42G6wnihetrIxH4_pDC2p8l7tGz9zCx4Yxcsy8Lo4Qk2pBkFyUKz-8NU6HecLG0QzKE';
@@ -141,21 +158,14 @@
             const count = document.getElementById('accumulatedCount').value.trim();
             let links = [];
             let duplicate = false;
-
             document.querySelectorAll('#generalLinks .promo-link').forEach(i => {
                 const val = i.value.trim();
-                if(val) {
-                    if(links.includes(val)) duplicate = true; // 중복 체크
-                    links.push(val);
-                }
+                if(val) { if(links.includes(val)) duplicate = true; links.push(val); }
             });
-
             if(!nick) return alert('닉네임을 입력하세요!');
             if(!count) return alert('누적 횟수를 입력하세요!');
             if(links.length < 10) return alert('링크 10개를 모두 입력하세요!');
-            if(duplicate) return alert('동일한 링크가 포함되어 있습니다! 다시 확인해주세요.'); // 동일 링크 감지
-
-            // 멘트 옆의 (1) 번호 삭제
+            if(duplicate) return alert('동일한 링크가 포함되어 있습니다!');
             sendWebhook(`📄 일반 홍보 신청 - ${nick}`, [
                 { name: "👤 캐릭터 닉네임", value: nick, inline: true },
                 { name: "📈 홍보 누적 횟수", value: `${count}회`, inline: true },
@@ -167,19 +177,13 @@
             const nick = document.getElementById('specNickname').value.trim();
             let links = [];
             let duplicate = false;
-
             document.querySelectorAll('#specialLinks .special-promo-link').forEach(i => {
                 const val = i.value.trim();
-                if(val) {
-                    if(links.includes(val)) duplicate = true; // 중복 체크
-                    links.push(val);
-                }
+                if(val) { if(links.includes(val)) duplicate = true; links.push(val); }
             });
-
             if(!nick) return alert('닉네임을 입력하세요!');
             if(links.length === 0) return alert('특별 홍보 링크를 입력하세요!');
-            if(duplicate) return alert('동일한 링크가 포함되어 있습니다!'); // 동일 링크 감지
-
+            if(duplicate) return alert('동일한 링크가 포함되어 있습니다!');
             sendWebhook(`⭐ 특별 홍보 신청 - ${nick}`, [
                 { name: "👤 캐릭터 닉네임", value: nick, inline: true },
                 { name: "✨ 특별 홍보 링크", value: links.join('\n') }
