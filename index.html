@@ -15,19 +15,13 @@
         
         h1 { font-family: 'OkMallangW', sans-serif; font-weight: normal; font-size: 80px; margin-top: 30px; margin-bottom: 20px; color: #ffffff; text-shadow: -4px -4px 0 #5cc98e, 4px -4px 0 #5cc98e, -4px 4px 0 #5cc98e, 4px 4px 0 #5cc98e, 0 12px 20px rgba(92, 201, 142, 0.4); }
         
-        /* 버튼 그룹 스타일 수정 */
         .btn-group { margin-bottom: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         .nav-btn { display: inline-block; padding: 12px 25px; font-weight: 700; font-size: 17px; border-radius: 50px; cursor: pointer; transition: all 0.3s; background: #ffffff; text-decoration: none; border: 2px solid; }
         
-        /* 일반 홍보 양식 (빨강) */
         .btn-general { color: #ff6b6b; border-color: #ff6b6b; }
         .btn-general:hover { background: #ff6b6b; color: #ffffff; }
-
-        /* 특별 홍보 양식 (파랑) */
         .btn-special { color: #4dabf7; border-color: #4dabf7; }
         .btn-special:hover { background: #4dabf7; color: #ffffff; }
-
-        /* 누적 보상 안내 (검정) */
         .btn-reward { color: #333333; border-color: #333333; }
         .btn-reward:hover { background: #333333; color: #ffffff; }
 
@@ -124,55 +118,17 @@
             </div>
             <div class="notice-box">
                 <p><strong>📢 특별 홍보 엄중 안내</strong></p>
-                <p>• <strong>지정 플랫폼 엄수:</strong> 지정 사이트 및 규정 양식을 반드시 준수하시기 바랍니다.</p>
-                <p>• <strong>철저한 검증:</strong> 운영진의 전수 조사 후 조건 충족 시 지급됩니다.</p>
+                <p>• <strong>지정 플랫폼 엄수:</strong> 지정 사이트 및 규정 양식을 준수하세요.</p>
+                <p>• <strong>철저한 검증:</strong> 운영진 확인 후 조건 충족 시 지급됩니다.</p>
             </div>
             <button class="submit-btn" onclick="submitSpecial()">특별 홍보 인증 제출</button>
         </div>
     </div>
 
-    <div id="generalGuideModal" class="modal">
-        <div class="modal-content" style="border-color: #ff6b6b;">
-            <span class="close-btn" style="color: #ff6b6b;" onclick="closeModal('generalGuideModal')">&times;</span>
-            <h2 style="color: #ff6b6b; text-align: center;">일반 홍보 양식 안내</h2>
-            <div class="guide-content-box">
-                <p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('genTitle')">복사</button><br><span id="genTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p>
-                <hr style="border: 0; border-top: 1px solid #ffe3e3; margin: 15px 0;">
-                <p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('genContent')">복사</button><br><span id="genContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p>
-            </div>
-        </div>
-    </div>
-
-    <div id="specialGuideModal" class="modal">
-        <div class="modal-content" style="border-color: #4dabf7;">
-            <span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span>
-            <h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식 안내</h2>
-            <div class="guide-content-box">
-                <p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">✨ [특별홍보] 미니랜드와 함께하실 분들을 모십니다! ✨</span></p>
-                <hr style="border: 0; border-top: 1px solid #e7f5ff; margin: 15px 0;">
-                <p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">본 게시물은 지정 사이트 특별 홍보 양식입니다.<br>미니랜드의 특별한 혜택과 시스템을 확인해보세요!<br>링크: https://discord.gg/YDVcnqE93M</span></p>
-            </div>
-        </div>
-    </div>
-
-    <div id="rewardModal" class="modal">
-        <div class="modal-content" style="border-color: #333;">
-            <span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span>
-            <h2 style="color: #333; text-align: center;">홍보 누적 보상 안내</h2>
-            <div class="guide-content-box">
-                <table class="reward-table">
-                    <tbody>
-                        <tr><td>50회</td><td>올텟+10/공+5/마+10</td></tr>
-                        <tr><td>100회</td><td>♥미니의 단짝♥ 칭호</td></tr>
-                        <tr><td>150회</td><td>올텟+20/공+10/마+20</td></tr>
-                        <tr><td>200회</td><td>홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr>
-                        <tr><td>250회</td><td>올텟+40/공+20/마+40</td></tr>
-                        <tr><td>300회</td><td>올텟+50/공+25/마+50</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <!-- 모달 생략 (동일) -->
+    <div id="generalGuideModal" class="modal"><div class="modal-content" style="border-color: #ff6b6b;"><span class="close-btn" style="color: #ff6b6b;" onclick="closeModal('generalGuideModal')">&times;</span><h2 style="color: #ff6b6b; text-align: center;">일반 홍보 양식</h2><div class="guide-content-box"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('genTitle')">복사</button><br><span id="genTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border: 0; border-top: 1px solid #ffe3e3; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('genContent')">복사</button><br><span id="genContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
+    <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식</h2><div class="guide-content-box"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">✨ [특별홍보] 미니랜드와 함께해요! ✨</span></p><hr style="border: 0; border-top: 1px solid #e7f5ff; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">미니랜드의 특별한 시스템을 확인하세요!<br>디스코드: https://discord.gg/YDVcnqE93M</span></p></div></div></div>
+    <div id="rewardModal" class="modal"><div class="modal-content" style="border-color: #333;"><span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span><h2 style="color: #333; text-align: center;">홍보 누적 보상 안내</h2><div class="guide-content-box"><table class="reward-table"><tbody><tr><td>50회</td><td>올텟+10/공+5/마+10</td></tr><tr><td>100회</td><td>♥미니의 단짝♥ 칭호</td></tr><tr><td>150회</td><td>올텟+20/공+10/마+20</td></tr><tr><td>200회</td><td>홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr><tr><td>250회</td><td>올텟+40/공+20/마+40</td></tr><tr><td>300회</td><td>올텟+50/공+25/마+50</td></tr></tbody></table></div></div></div>
 
     <script>
         const webhookUrl = 'https://discordapp.com/api/webhooks/1500394319054377100/S42G6wnihetrIxH4_pDC2p8l7tGz9zCx4Yxcsy8Lo4Qk2pBkFyUKz-8NU6HecLG0QzKE';
@@ -184,26 +140,49 @@
             const nick = document.getElementById('genNickname').value.trim();
             const count = document.getElementById('accumulatedCount').value.trim();
             let links = [];
-            document.querySelectorAll('#generalLinks .promo-link').forEach(i => { if(i.value.trim()) links.push(i.value.trim()); });
+            let duplicate = false;
+
+            document.querySelectorAll('#generalLinks .promo-link').forEach(i => {
+                const val = i.value.trim();
+                if(val) {
+                    if(links.includes(val)) duplicate = true; // 중복 체크
+                    links.push(val);
+                }
+            });
+
             if(!nick) return alert('닉네임을 입력하세요!');
             if(!count) return alert('누적 횟수를 입력하세요!');
-            if(links.length < 10) return alert('일반 홍보는 링크 10개가 필수입니다!');
-            sendWebhook(`📄 일반 홍보 신청 (${nick})`, [
-                { name: "👤 닉네임", value: nick, inline: true },
-                { name: "📈 누적 횟수", value: `${count}회`, inline: true },
-                { name: "📝 홍보 링크", value: links.map((l, idx) => `[${idx+1}] ${l}`).join('\n') }
+            if(links.length < 10) return alert('링크 10개를 모두 입력하세요!');
+            if(duplicate) return alert('동일한 링크가 포함되어 있습니다! 다시 확인해주세요.'); // 동일 링크 감지
+
+            // 멘트 옆의 (1) 번호 삭제
+            sendWebhook(`📄 일반 홍보 신청 - ${nick}`, [
+                { name: "👤 캐릭터 닉네임", value: nick, inline: true },
+                { name: "📈 홍보 누적 횟수", value: `${count}회`, inline: true },
+                { name: "📝 홍보 링크 (10건)", value: links.join('\n') }
             ]);
         }
 
         function submitSpecial() {
             const nick = document.getElementById('specNickname').value.trim();
             let links = [];
-            document.querySelectorAll('#specialLinks .special-promo-link').forEach(i => { if(i.value.trim()) links.push(i.value.trim()); });
+            let duplicate = false;
+
+            document.querySelectorAll('#specialLinks .special-promo-link').forEach(i => {
+                const val = i.value.trim();
+                if(val) {
+                    if(links.includes(val)) duplicate = true; // 중복 체크
+                    links.push(val);
+                }
+            });
+
             if(!nick) return alert('닉네임을 입력하세요!');
-            if(links.length === 0) return alert('특별 홍보 링크가 필요합니다!');
-            sendWebhook(`⭐ 특별 홍보 신청 (${nick})`, [
-                { name: "👤 닉네임", value: nick, inline: true },
-                { name: "✨ 특별 링크", value: links.map((l, idx) => `[${idx+1}] ${l}`).join('\n') }
+            if(links.length === 0) return alert('특별 홍보 링크를 입력하세요!');
+            if(duplicate) return alert('동일한 링크가 포함되어 있습니다!'); // 동일 링크 감지
+
+            sendWebhook(`⭐ 특별 홍보 신청 - ${nick}`, [
+                { name: "👤 캐릭터 닉네임", value: nick, inline: true },
+                { name: "✨ 특별 홍보 링크", value: links.join('\n') }
             ]);
         }
 
