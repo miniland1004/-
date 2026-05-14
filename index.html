@@ -8,12 +8,12 @@
         /* [폰트 설정] 옥말랑 폰트 강제 로드 */
         @font-face { 
             font-family: 'OkMallangW'; 
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2?v=4') format('woff2'); 
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2?v=5') format('woff2'); 
             font-weight: normal; 
             font-display: swap; 
         }
 
-        /* [전체 강제 적용] 메뉴, 카테고리, 버튼 포함 모든 텍스트를 동글동글한 폰트로 고정 */
+        /* [전체 강제 적용] 메뉴, 카테고리, 버튼, 입력창 라벨 등 모든 텍스트를 동글동글한 폰트로 고정 */
         * { font-family: 'OkMallangW', sans-serif !important; }
 
         body { background: #ffffff; margin: 0; padding: 40px 20px; text-align: center; min-height: 100vh; color: #333; }
@@ -39,13 +39,16 @@
         .general-card { border-color: #ff6b6b; }
         .special-card { border-color: #4dabf7; }
 
-        .section-title { font-size: 32px; margin-bottom: 25px; }
+        /* [중요] 동그라미 친 제목 부분 폰트 강제 지정 */
+        .section-title { font-size: 32px !important; margin-bottom: 25px !important; font-family: 'OkMallangW' !important; }
         .general-card .section-title { color: #ff6b6b; }
         .special-card .section-title { color: #4dabf7; }
 
+        /* [중요] 동그라미 친 라벨 부분 폰트 강제 지정 */
         .input-group { margin-bottom: 20px; }
-        .general-card .input-group label { display: block; font-size: 21px; margin-bottom: 10px; color: #ff6b6b; }
-        .special-card .input-group label { display: block; font-size: 21px; margin-bottom: 10px; color: #4dabf7; }
+        .input-group label { display: block !important; font-size: 21px !important; margin-bottom: 10px !important; font-family: 'OkMallangW' !important; font-weight: normal !important; }
+        .general-card .input-group label { color: #ff6b6b; }
+        .special-card .input-group label { color: #4dabf7; }
         
         input { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #f0f0f0; background: #fcfcfc; font-size: 16px; box-sizing: border-box; outline: none; transition: 0.3s; }
         input:focus { border-color: #5cc98e; background: #fff; }
@@ -138,8 +141,8 @@
     <!-- 일반 홍보 양식 모달 -->
     <div id="generalGuideModal" class="modal"><div class="modal-content" style="border-color: #ff6b6b;"><span class="close-btn" style="color: #ff6b6b;" onclick="closeModal('generalGuideModal')">&times;</span><h2 style="color: #ff6b6b; text-align: center;">일반 홍보 양식</h2><div class="guide-box" style="border-color: #ff6b6b;"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('genTitle')">복사</button><br><span id="genTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border-top: 1px solid #ffe3e3;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('genContent')">복사</button><br><span id="genContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
     
-    <!-- 특별 홍보 양식 모달 (일반 양식과 동일하게 구현) -->
-    <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식</h2><div class="guide-box" style="border-color: #4dabf7;"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">⭐특별 홍보 양식 - 사이트 지정 안내⭐</span></p><hr style="border-top: 1px solid #e7f5ff;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">• 특별 홍보는 사이트 지정 입니다 꼭 양식 확인 해주세요!<br>• 운영진 확인 후 지정 조건 확인후 지급!<br>• 미니랜드 디스코드 : https://discord.gg/YDVcnqE93M</span></p></div></div></div>
+    <!-- 특별 홍보 양식 모달 (일반과 100% 동일하게 제목/내용/복사 기능 적용) -->
+    <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식</h2><div class="guide-box" style="border-color: #4dabf7;"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border-top: 1px solid #e7f5ff;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
     
     <div id="rewardModal" class="modal"><div class="modal-content" style="border-color: #333;"><span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span><h2 style="color: #333; text-align: center;">홍보 누적 보상</h2><div class="guide-box" style="border-color: #333;"><table class="reward-table"><tbody><tr><td>50회</td><td>올텟+10/공+5/마+10</td></tr><tr><td>100회</td><td>♥미니의 단짝♥ 칭호</td></tr><tr><td>150회</td><td>올텟+20/공+10/마+20</td></tr><tr><td>200회</td><td>홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr><tr><td>250회</td><td>올텟+40/공+20/마+40</td></tr><tr><td>300회</td><td>올텟+50/공+25/마+50</td></tr></tbody></table></div></div></div>
 
