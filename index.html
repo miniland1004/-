@@ -5,39 +5,20 @@
     <title>MINI LAND</title>
     
     <style>
-        @font-face { 
-            font-family: 'OkMallangW'; 
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2?v=8') format('woff2'); 
-            font-weight: normal; 
-            font-display: swap; 
-        }
-        @font-face { 
-            font-family: 'Pretendard-Regular'; 
-            src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff'); 
-            font-weight: 400; 
-            font-style: normal; 
-        }
+        /* 폰트 설정 */
+        @font-face { font-family: 'OkMallangW'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2?v=8') format('woff2'); font-weight: normal; font-display: swap; }
+        @font-face { font-family: 'Pretendard-Regular'; src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff'); font-weight: 400; font-style: normal; }
 
-        * { 
-            font-family: 'Pretendard-Regular', sans-serif !important; 
-            -webkit-font-smoothing: antialiased;
-        }
+        * { font-family: 'Pretendard-Regular', sans-serif !important; -webkit-font-smoothing: antialiased; }
 
         body { background: #ffffff; margin: 0; padding: 40px 20px; text-align: center; min-height: 100vh; color: #333; }
         .header-section { max-width: 900px; margin: 0 auto 40px; position: relative; }
         .header-section img { width: 100%; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); display: block; }
         
-        h1 { 
-            font-family: 'OkMallangW', sans-serif !important;
-            font-size: 80px; margin-top: 30px; margin-bottom: 20px; color: #ffffff; 
-            text-shadow: -4px -4px 0 #5cc98e, 4px -4px 0 #5cc98e, -4px 4px 0 #5cc98e, 4px 4px 0 #5cc98e, 0 12px 20px rgba(92, 201, 142, 0.4); 
-        }
+        h1 { font-family: 'OkMallangW', sans-serif !important; font-size: 80px; margin-top: 30px; margin-bottom: 20px; color: #ffffff; text-shadow: -4px -4px 0 #5cc98e, 4px -4px 0 #5cc98e, -4px 4px 0 #5cc98e, 4px 4px 0 #5cc98e, 0 12px 20px rgba(92, 201, 142, 0.4); }
         
         .btn-group { margin-bottom: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .nav-btn { 
-            display: inline-block; padding: 12px 25px; font-size: 18px !important; font-weight: 700 !important;
-            border-radius: 50px; cursor: pointer; transition: all 0.3s; background: #ffffff; text-decoration: none; border: 2px solid; 
-        }
+        .nav-btn { display: inline-block; padding: 12px 25px; font-size: 18px !important; font-weight: 700 !important; border-radius: 50px; cursor: pointer; transition: all 0.3s; background: #ffffff; text-decoration: none; border: 2px solid; }
         
         .btn-general { color: #ff6b6b; border-color: #ff6b6b; }
         .btn-general:hover { background: #ff6b6b; color: #ffffff; }
@@ -67,10 +48,7 @@
         .notice-box { background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #4dabf7; margin-top: 20px; }
         .notice-box p { font-size: 14px; color: #555; line-height: 1.6; margin: 0; }
 
-        .submit-btn { 
-            width: 100%; font-size: 22px !important; font-weight: 700 !important; color: #ffffff; 
-            padding: 16px; border: none; border-radius: 12px; cursor: pointer; transition: 0.3s; margin-top: 15px; 
-        }
+        .submit-btn { width: 100%; font-size: 22px !important; font-weight: 700 !important; color: #ffffff; padding: 16px; border: none; border-radius: 12px; cursor: pointer; transition: 0.3s; margin-top: 15px; }
         .general-card .submit-btn { background: linear-gradient(135deg, #ff9b9b 0%, #ff6b6b 100%); }
         .special-card .submit-btn { background: linear-gradient(135deg, #74c0fc 0%, #4dabf7 100%); }
 
@@ -97,6 +75,7 @@
     </div>
 
     <div class="content-wrapper">
+        <!-- 일반 홍보 섹션 -->
         <div class="promo-card general-card">
             <div class="section-title">📄 일반 홍보 인증</div>
             <div class="input-group">
@@ -125,6 +104,7 @@
             <button class="submit-btn" onclick="submitGeneral()">일반 인증 제출!</button>
         </div>
 
+        <!-- 특별 홍보 섹션 -->
         <div class="promo-card special-card">
             <div class="section-title">⭐ 특별 홍보 인증</div>
             <div class="input-group">
@@ -150,14 +130,13 @@
         </div>
     </div>
 
-    <!-- 모달 생략 불가 (지시사항 준수) -->
+    <!-- 모달 등 가이드 섹션 (내용 동일) -->
     <div id="generalGuideModal" class="modal"><div class="modal-content" style="border-color: #ff6b6b;"><span class="close-btn" style="color: #ff6b6b;" onclick="closeModal('generalGuideModal')">&times;</span><h2 style="color: #ff6b6b; text-align: center;">일반 홍보 양식</h2><div class="guide-box"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('genTitle')">복사</button><br><span id="genTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('genContent')">복사</button><br><span id="genContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
-    
     <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식</h2><div class="guide-box"><p style="margin-bottom: 15px;"><strong>[📍 지정 홍보처 안내]</strong><br>1. 프리베네 (<a href="https://freebene.com/" target="_blank" class="site-link">freebene.com</a>)<br>2. 투데이프리 (<a href="https://oraksil.cc/" target="_blank" class="site-link">oraksil.cc</a>)<br>3. 린투데이 (<a href="https://lintoday.me/" target="_blank" class="site-link">lintoday.me</a>)<br><span class="highlight-text">※ 위 3개 사이트 중 최소 5번 이상 작성 필수!</span></p><hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
-    
     <div id="rewardModal" class="modal"><div class="modal-content" style="border-color: #333;"><span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span><h2 style="color: #333; text-align: center;">홍보 누적 보상</h2><div class="guide-box"><table style="width: 100%; border-collapse: collapse;"><tbody><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">50회</td><td style="padding: 12px; text-align: center;">올텟+10/공+5/마+10</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">100회</td><td style="padding: 12px; text-align: center;">♥미니의 단짝♥ 칭호</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">150회</td><td style="padding: 12px; text-align: center;">올텟+20/공+10/마+20</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">200회</td><td style="padding: 12px; text-align: center;">홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">250회</td><td style="padding: 12px; text-align: center;">올텟+40/공+20/마+40</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">300회</td><td style="padding: 12px; text-align: center;">올텟+50/공+25/마+50</td></tr></tbody></table></div></div></div>
 
     <script>
+        // 웹후크 설정
         const generalWebhookUrl = 'https://discordapp.com/api/webhooks/1500394319054377100/S42G6wnihetrIxH4_pDC2p8l7tGz9zCx4Yxcsy8Lo4Qk2pBkFyUKz-8NU6HecLG0QzKE';
         const specialWebhookUrl = 'https://discordapp.com/api/webhooks/1504513790442475710/-m1ZNlq3UvYe_CyhKPWrwFo_Q0wbHkVbloUARoP1eSBlPDrSbJUfOKphC_FqWnI0-YPS';
 
@@ -165,6 +144,7 @@
         function closeModal(id) { document.getElementById(id).style.display = "none"; }
         function copyText(id) { navigator.clipboard.writeText(document.getElementById(id).innerText).then(() => alert('복사되었습니다!')); }
 
+        // [일반 홍보 인증] 전용 웹후크 함수
         function submitGeneral() {
             const nick = document.getElementById('genNickname').value.trim();
             const count = document.getElementById('accumulatedCount').value.trim();
@@ -174,6 +154,7 @@
                 const val = i.value.trim();
                 if(val) { if(links.includes(val)) duplicate = true; links.push(val); }
             });
+
             if(!nick) return alert('닉네임을 입력하세요!');
             if(!count) return alert('누적 횟수를 입력하세요!');
             if(links.length < 10) return alert('링크 10개를 모두 입력하세요!');
@@ -182,14 +163,15 @@
             const today = new Date();
             const dateStr = `${today.getMonth() + 1}월 ${today.getDate()}일`;
 
-            // image_85cef5.png 상단 양식으로 완벽 복구
-            sendWebhook(generalWebhookUrl, `홍보 인증 신청 내역 (${dateStr})`, [
-                { name: "💓 캐릭터 닉네임", value: nick, inline: true },
-                { name: "📈 누적 횟수", value: `${count}회`, inline: true },
-                { name: `📧 제출된 홍보 링크 (10건)`, value: links.map((l, idx) => `**[${idx+1}]** ${l}`).join('\n') }
+            // 일반 채널 전송
+            sendWebhook(generalWebhookUrl, `📢 홍보 인증 신청 접수 (${dateStr})`, [
+                { name: "👤 캐릭터 닉네임", value: nick, inline: true },
+                { name: "📈 일반 누적 횟수", value: `${count}회`, inline: true },
+                { name: "📝 일반 홍보 인증 (10개)", value: links.map((l, idx) => `**[일반 ${idx+1}]** ${l}`).join('\n') }
             ]);
         }
 
+        // [특별 홍보 인증] 전용 웹후크 함수
         function submitSpecial() {
             const nick = document.getElementById('specNickname').value.trim();
             let links = [];
@@ -198,6 +180,7 @@
                 const val = i.value.trim();
                 if(val) { if(links.includes(val)) duplicate = true; links.push(val); }
             });
+
             if(!nick) return alert('닉네임을 입력하세요!');
             if(links.length === 0) return alert('특별 홍보 링크를 입력하세요!');
             if(duplicate) return alert('중복된 링크가 있습니다!');
@@ -205,11 +188,11 @@
             const today = new Date();
             const dateStr = `${today.getMonth() + 1}월 ${today.getDate()}일`;
 
-            // 특별 홍보도 동일하게 깔끔한 형식 적용
-            sendWebhook(specialWebhookUrl, `⭐ 특별 홍보 인증 신청 내역 (${dateStr})`, [
-                { name: "💓 캐릭터 닉네임", value: nick, inline: true },
-                { name: "✨ 인증 구분", value: `특별 홍보`, inline: true },
-                { name: `📧 제출된 홍보 링크 (${links.length}건)`, value: links.map((l, idx) => `**[${idx+1}]** ${l}`).join('\n') }
+            // 특별 채널 전송
+            sendWebhook(specialWebhookUrl, `✨ 특별 홍보 인증 신청 접수 (${dateStr})`, [
+                { name: "👤 캐릭터 닉네임", value: nick, inline: true },
+                { name: "✨ 인증 구분", value: "특별 홍보", inline: true },
+                { name: `📧 특별 홍보 인증 (최대 5개)`, value: links.map((l, idx) => `**[특별 ${idx+1}]** ${l}`).join('\n') }
             ]);
         }
 
