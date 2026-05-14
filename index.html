@@ -5,19 +5,24 @@
     <title>MINI LAND</title>
     
     <style>
-        /* [폰트 설정] 한글까지 속이 꽉 찬 완벽한 옥말랑 폰트 로드 */
+        /* [폰트 설정] 로고 전용 귀여운 폰트 및 본문용 깔끔한 폰트 */
         @font-face { 
             font-family: 'OkMallangW'; 
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2?v=7') format('woff2'); 
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2?v=8') format('woff2'); 
             font-weight: normal; 
             font-display: swap; 
         }
+        @font-face { 
+            font-family: 'Pretendard-Regular'; 
+            src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff'); 
+            font-weight: 400; 
+            font-style: normal; 
+        }
 
-        /* [전체 강제 적용] 한글, 숫자, 기호 가리지 않고 모든 텍스트를 옥말랑으로 고정 */
+        /* [본문 기본] 모든 텍스트는 가독성 좋은 깔끔한 폰트로 고정 */
         * { 
-            font-family: 'OkMallangW', sans-serif !important; 
+            font-family: 'Pretendard-Regular', sans-serif !important; 
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         body { 
@@ -32,7 +37,9 @@
         .header-section { max-width: 900px; margin: 0 auto 40px; position: relative; }
         .header-section img { width: 100%; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); display: block; }
         
+        /* [포인트] 메인 로고 제목만 귀여운 폰트 유지 */
         h1 { 
+            font-family: 'OkMallangW', sans-serif !important;
             font-size: 80px; 
             margin-top: 30px; 
             margin-bottom: 20px; 
@@ -44,7 +51,8 @@
         .nav-btn { 
             display: inline-block; 
             padding: 12px 25px; 
-            font-size: 22px !important; 
+            font-size: 18px !important; 
+            font-weight: 700 !important;
             border-radius: 50px; 
             cursor: pointer; 
             transition: all 0.3s; 
@@ -66,15 +74,16 @@
         .general-card { border-color: #ff6b6b; }
         .special-card { border-color: #4dabf7; }
 
-        .section-title { font-size: 32px !important; margin-bottom: 25px !important; }
+        .section-title { font-size: 26px !important; font-weight: 700 !important; margin-bottom: 25px !important; }
         .general-card .section-title { color: #ff6b6b; }
         .special-card .section-title { color: #4dabf7; }
 
         .input-group { margin-bottom: 20px; }
         .input-group label { 
             display: block !important; 
-            font-size: 21px !important; 
-            margin-bottom: 10px !important; 
+            font-size: 17px !important; 
+            font-weight: 700 !important;
+            margin-bottom: 8px !important; 
         }
         .general-card .input-group label { color: #ff6b6b; }
         .special-card .input-group label { color: #4dabf7; }
@@ -82,41 +91,43 @@
         input { 
             width: 100%; 
             padding: 14px; 
-            border-radius: 12px; 
-            border: 2px solid #f0f0f0; 
+            border-radius: 10px; 
+            border: 1.5px solid #eee; 
             background: #fcfcfc; 
-            font-size: 16px; 
+            font-size: 15px; 
             box-sizing: border-box; 
             outline: none; 
             transition: 0.3s; 
         }
         input:focus { border-color: #5cc98e; background: #fff; }
         
-        .notice-box { background: #f8f9fa; padding: 20px; border-radius: 15px; border-left: 4px solid #4dabf7; margin-top: 20px; }
-        .notice-box p { font-size: 15px; color: #555; line-height: 1.8; margin: 0; }
+        .notice-box { background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 4px solid #4dabf7; margin-top: 20px; }
+        .notice-box p { font-size: 14px; color: #555; line-height: 1.6; margin: 0; }
 
         .submit-btn { 
             width: 100%; 
-            font-size: 28px !important; 
+            font-size: 22px !important; 
+            font-weight: 700 !important;
             color: #ffffff; 
-            padding: 18px; 
+            padding: 16px; 
             border: none; 
-            border-radius: 14px; 
+            border-radius: 12px; 
             cursor: pointer; 
             transition: 0.3s; 
-            margin-top: 20px; 
+            margin-top: 15px; 
         }
         .general-card .submit-btn { background: linear-gradient(135deg, #ff9b9b 0%, #ff6b6b 100%); }
         .special-card .submit-btn { background: linear-gradient(135deg, #74c0fc 0%, #4dabf7 100%); }
-        .submit-btn:hover { transform: translateY(-3px); opacity: 0.9; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
 
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
-        .modal-content { background-color: #ffffff; margin: 5% auto; padding: 40px; border: 3px solid #5cc98e; width: 90%; max-width: 650px; border-radius: 24px; position: relative; text-align: left; line-height: 1.8; }
+        .modal-content { background-color: #ffffff; margin: 5% auto; padding: 35px; border: 2px solid #5cc98e; width: 90%; max-width: 600px; border-radius: 20px; position: relative; text-align: left; line-height: 1.7; }
+        .modal-content h2 { font-family: 'OkMallangW', sans-serif !important; font-size: 30px; margin-bottom: 20px; }
         .close-btn { position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; color: #5cc98e; cursor: pointer; }
-        .guide-box { background:#f9fdfb; padding:20px; border-radius:12px; border:1px dashed #ddd; }
+        .guide-box { background:#f9fdfb; padding:20px; border-radius:12px; border:1px dashed #ccc; font-size: 15px; }
         .reward-table { width: 100%; border-collapse: collapse; }
-        .reward-table td { border-bottom: 1px solid #e5f7f2; padding: 12px 8px; text-align: center; font-weight: 700; }
-        .copy-btn { padding: 4px 10px; background: #f0f0f0; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; cursor: pointer; margin-left: 5px; }
+        .reward-table td { border-bottom: 1px solid #eee; padding: 12px 8px; text-align: center; font-weight: 400; }
+        .copy-btn { padding: 4px 10px; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; cursor: pointer; margin-left: 5px; font-weight: 700; }
     </style>
 </head>
 <body>
@@ -185,12 +196,10 @@
         </div>
     </div>
 
-    <!-- 모달 양식 (미니짱님의 소중한 양식) -->
-    <div id="generalGuideModal" class="modal"><div class="modal-content" style="border-color: #ff6b6b;"><span class="close-btn" style="color: #ff6b6b;" onclick="closeModal('generalGuideModal')">&times;</span><h2 style="color: #ff6b6b; text-align: center;">일반 홍보 양식</h2><div class="guide-box" style="border-color: #ff6b6b;"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('genTitle')">복사</button><br><span id="genTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border-top: 1px solid #ffe3e3;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('genContent')">복사</button><br><span id="genContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
-    
-    <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식</h2><div class="guide-box" style="border-color: #4dabf7;"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border-top: 1px solid #e7f5ff;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
-    
-    <div id="rewardModal" class="modal"><div class="modal-content" style="border-color: #333;"><span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span><h2 style="color: #333; text-align: center;">홍보 누적 보상</h2><div class="guide-box" style="border-color: #333;"><table class="reward-table"><tbody><tr><td>50회</td><td>올텟+10/공+5/마+10</td></tr><tr><td>100회</td><td>♥미니의 단짝♥ 칭호</td></tr><tr><td>150회</td><td>올텟+20/공+10/마+20</td></tr><tr><td>200회</td><td>홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr><tr><td>250회</td><td>올텟+40/공+20/마+40</td></tr><tr><td>300회</td><td>올텟+50/공+25/마+50</td></tr></tbody></table></div></div></div>
+    <!-- 모달 내용 -->
+    <div id="generalGuideModal" class="modal"><div class="modal-content" style="border-color: #ff6b6b;"><span class="close-btn" style="color: #ff6b6b;" onclick="closeModal('generalGuideModal')">&times;</span><h2 style="color: #ff6b6b; text-align: center;">일반 홍보 양식</h2><div class="guide-box"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('genTitle')">복사</button><br><span id="genTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('genContent')">복사</button><br><span id="genContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
+    <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식</h2><div class="guide-box"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
+    <div id="rewardModal" class="modal"><div class="modal-content" style="border-color: #333;"><span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span><h2 style="color: #333; text-align: center;">홍보 누적 보상</h2><div class="guide-box"><table class="reward-table"><tbody><tr><td>50회</td><td>올텟+10/공+5/마+10</td></tr><tr><td>100회</td><td>♥미니의 단짝♥ 칭호</td></tr><tr><td>150회</td><td>올텟+20/공+10/마+20</td></tr><tr><td>200회</td><td>홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr><tr><td>250회</td><td>올텟+40/공+20/마+40</td></tr><tr><td>300회</td><td>올텟+50/공+25/마+50</td></tr></tbody></table></div></div></div>
 
     <script>
         const webhookUrl = 'https://discordapp.com/api/webhooks/1500394319054377100/S42G6wnihetrIxH4_pDC2p8l7tGz9zCx4Yxcsy8Lo4Qk2pBkFyUKz-8NU6HecLG0QzKE';
