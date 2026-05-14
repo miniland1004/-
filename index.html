@@ -5,7 +5,7 @@
     <title>MINI LAND</title>
     
     <style>
-        /* [폰트 설정] 로고 전용 귀여운 폰트 및 본문용 깔끔한 폰트 */
+        /* [폰트 설정] 로고/제목용 귀여운 폰트 및 본문용 깔끔한 폰트 */
         @font-face { 
             font-family: 'OkMallangW'; 
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2603-1@1.0/OkMallangW-Regular.woff2?v=8') format('woff2'); 
@@ -37,7 +37,7 @@
         .header-section { max-width: 900px; margin: 0 auto 40px; position: relative; }
         .header-section img { width: 100%; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); display: block; }
         
-        /* [포인트] 메인 로고 제목만 귀여운 폰트 유지 */
+        /* [포인트] 메인 로고 제목만 귀여운 폰트 */
         h1 { 
             font-family: 'OkMallangW', sans-serif !important;
             font-size: 80px; 
@@ -120,14 +120,18 @@
         .special-card .submit-btn { background: linear-gradient(135deg, #74c0fc 0%, #4dabf7 100%); }
         .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
 
+        /* 모달 스타일 */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
-        .modal-content { background-color: #ffffff; margin: 5% auto; padding: 35px; border: 2px solid #5cc98e; width: 90%; max-width: 600px; border-radius: 20px; position: relative; text-align: left; line-height: 1.7; }
+        .modal-content { background-color: #ffffff; margin: 2% auto; padding: 35px; border: 2px solid #5cc98e; width: 90%; max-width: 600px; border-radius: 20px; position: relative; text-align: left; line-height: 1.7; }
         .modal-content h2 { font-family: 'OkMallangW', sans-serif !important; font-size: 30px; margin-bottom: 20px; }
         .close-btn { position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; color: #5cc98e; cursor: pointer; }
         .guide-box { background:#f9fdfb; padding:20px; border-radius:12px; border:1px dashed #ccc; font-size: 15px; }
-        .reward-table { width: 100%; border-collapse: collapse; }
-        .reward-table td { border-bottom: 1px solid #eee; padding: 12px 8px; text-align: center; font-weight: 400; }
         .copy-btn { padding: 4px 10px; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; cursor: pointer; margin-left: 5px; font-weight: 700; }
+        
+        /* 특별 홍보 지정 사이트 스타일 */
+        .site-link { color: #4dabf7; text-decoration: none; font-weight: bold; }
+        .site-link:hover { text-decoration: underline; }
+        .highlight-text { color: #ff6b6b; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -189,17 +193,30 @@
             </div>
             <div class="notice-box">
                 <p><strong>📢 특별 홍보 엄중 안내</strong></p>
-                <p>• 지정 플랫폼 엄수: 지정 사이트 및 규정 양식을 반드시 준수하세요.</p>
+                <p>• 지정 플랫폼 엄수: 아래 양식 버튼을 눌러 지정 사이트를 확인하세요.</p>
                 <p>• 철저한 검증: 운영진 확인 후 지정 조건 충족 시 지급됩니다.</p>
             </div>
             <button class="submit-btn" onclick="submitSpecial()">특별 인증 제출!</button>
         </div>
     </div>
 
-    <!-- 모달 내용 -->
     <div id="generalGuideModal" class="modal"><div class="modal-content" style="border-color: #ff6b6b;"><span class="close-btn" style="color: #ff6b6b;" onclick="closeModal('generalGuideModal')">&times;</span><h2 style="color: #ff6b6b; text-align: center;">일반 홍보 양식</h2><div class="guide-box"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('genTitle')">복사</button><br><span id="genTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('genContent')">복사</button><br><span id="genContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
-    <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식</h2><div class="guide-box"><p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p><hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;"><p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p></div></div></div>
-    <div id="rewardModal" class="modal"><div class="modal-content" style="border-color: #333;"><span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span><h2 style="color: #333; text-align: center;">홍보 누적 보상</h2><div class="guide-box"><table class="reward-table"><tbody><tr><td>50회</td><td>올텟+10/공+5/마+10</td></tr><tr><td>100회</td><td>♥미니의 단짝♥ 칭호</td></tr><tr><td>150회</td><td>올텟+20/공+10/마+20</td></tr><tr><td>200회</td><td>홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr><tr><td>250회</td><td>올텟+40/공+20/마+40</td></tr><tr><td>300회</td><td>올텟+50/공+25/마+50</td></tr></tbody></table></div></div></div>
+    
+    <div id="specialGuideModal" class="modal"><div class="modal-content" style="border-color: #4dabf7;"><span class="close-btn" style="color: #4dabf7;" onclick="closeModal('specialGuideModal')">&times;</span><h2 style="color: #4dabf7; text-align: center;">특별 홍보 양식</h2><div class="guide-box">
+        <p style="margin-bottom: 15px;"><strong>[📍 지정 홍보처 안내]</strong><br>
+        1. 프리베네 (<a href="https://freebene.com/" target="_blank" class="site-link">freebene.com</a>)<br>
+        2. 투데이프리 (<a href="https://oraksil.cc/" target="_blank" class="site-link">oraksil.cc</a>)<br>
+        3. 린투데이 (<a href="https://lintoday.me/" target="_blank" class="site-link">lintoday.me</a>)<br>
+        <span class="highlight-text">※ 위 3개 사이트 중 최소 5번 이상 작성 필수!</span></p>
+        
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+        
+        <p><strong>[제목]</strong> <button class="copy-btn" onclick="copyText('specTitle')">복사</button><br><span id="specTitle">⭐미니랜드 5/10일 OPEN! EXP:3 / MESO:3 / DROP:5⭐</span></p>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+        <p><strong>[내용]</strong> <button class="copy-btn" onclick="copyText('specContent')">복사</button><br><span id="specContent">⭐ 미니랜드 커스텀 VER ⭐<br>⭐ EXP 3 / MESO 3 / DROP 5 ⭐<br>⭐ 순정 / 하자 / 성장 지향 / 모든 편의 유틸 개선 ⭐<br>⭐ 오토루팅 / 전직업 더블점프 / 줄타기 속도 UP ⭐<br>⭐ 미니랜드 많관부 ! ⭐<br>⭐ 디스코드 : https://discord.gg/YDVcnqE93M ⭐</span></p>
+    </div></div></div>
+    
+    <div id="rewardModal" class="modal"><div class="modal-content" style="border-color: #333;"><span class="close-btn" style="color: #333;" onclick="closeModal('rewardModal')">&times;</span><h2 style="color: #333; text-align: center;">홍보 누적 보상</h2><div class="guide-box"><table style="width: 100%; border-collapse: collapse;"><tbody><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">50회</td><td style="padding: 12px; text-align: center;">올텟+10/공+5/마+10</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">100회</td><td style="padding: 12px; text-align: center;">♥미니의 단짝♥ 칭호</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">150회</td><td style="padding: 12px; text-align: center;">올텟+20/공+10/마+20</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">200회</td><td style="padding: 12px; text-align: center;">홍보왕 심볼 + 올텟+30/공+15/마+30</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">250회</td><td style="padding: 12px; text-align: center;">올텟+40/공+20/마+40</td></tr><tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px; text-align: center;">300회</td><td style="padding: 12px; text-align: center;">올텟+50/공+25/마+50</td></tr></tbody></table></div></div></div>
 
     <script>
         const webhookUrl = 'https://discordapp.com/api/webhooks/1500394319054377100/S42G6wnihetrIxH4_pDC2p8l7tGz9zCx4Yxcsy8Lo4Qk2pBkFyUKz-8NU6HecLG0QzKE';
